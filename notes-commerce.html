@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerce & Management Notes - Slayyin</title>
+    <meta name="description" content="Comprehensive handwritten notes for commerce and management students including B.Com, BBA, MBA, CA covering accounting, economics, finance and more.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #000;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-btn {
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+        }
+
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: #000;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background: #222;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Subjects Section */
+        .subjects {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .subject-card {
+            background: #222;
+            border: 2px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+            border-color: #fff;
+            background: #333;
+        }
+
+        .subject-icon {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        .subject-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subject-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .subject-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .topic-tag {
+            background: #333;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid #444;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: #000;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: #fff;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 40px 0 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .subject-card {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Slayyin Logo" style="height: 40px; width: auto;">
+                </a>
+                <a href="index.html#handwritten-notes" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Notes
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h1>Commerce & Management Notes</h1>
+            <p>Comprehensive handwritten notes for commerce and management students covering B.Com, BBA, MBA, CA and other business programs. Quality study material crafted by top students and educators.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">600+</div>
+                    <div class="stat-label">Pages of Notes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18+</div>
+                    <div class="stat-label">Business Subjects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1500+</div>
+                    <div class="stat-label">Students Helped</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.7/5</div>
+                    <div class="stat-label">Student Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="subjects">
+        <div class="container">
+            <h2 class="section-title">Available Subjects</h2>
+            <p class="section-subtitle">Explore our comprehensive collection of handwritten notes for commerce and management studies</p>
+            
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Accounting</h3>
+                    <p>Comprehensive accounting principles, financial accounting, and cost accounting</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Financial Accounting</span>
+                        <span class="topic-tag">Cost Accounting</span>
+                        <span class="topic-tag">Management Accounting</span>
+                        <span class="topic-tag">Auditing</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Economics</h3>
+                    <p>Micro and macroeconomics, business economics, and economic analysis</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Microeconomics</span>
+                        <span class="topic-tag">Macroeconomics</span>
+                        <span class="topic-tag">Business Economics</span>
+                        <span class="topic-tag">International Trade</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Finance</h3>
+                    <p>Corporate finance, financial management, and investment analysis</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Corporate Finance</span>
+                        <span class="topic-tag">Financial Management</span>
+                        <span class="topic-tag">Investment Analysis</span>
+                        <span class="topic-tag">Banking</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing</h3>
+                    <p>Marketing principles, consumer behavior, and marketing strategies</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Marketing Principles</span>
+                        <span class="topic-tag">Consumer Behavior</span>
+                        <span class="topic-tag">Digital Marketing</span>
+                        <span class="topic-tag">Brand Management</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Human Resources</h3>
+                    <p>HR management, organizational behavior, and employee relations</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">HR Management</span>
+                        <span class="topic-tag">Organizational Behavior</span>
+                        <span class="topic-tag">Employee Relations</span>
+                        <span class="topic-tag">Training & Development</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Law</h3>
+                    <p>Commercial law, corporate law, and business regulations</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Commercial Law</span>
+                        <span class="topic-tag">Corporate Law</span>
+                        <span class="topic-tag">Contract Law</span>
+                        <span class="topic-tag">Business Ethics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Get Your Commerce Notes Today</h2>
+                <p>Join thousands of commerce students who have improved their grades with our comprehensive handwritten notes. Download instantly and start studying smarter.</p>
+                <button class="cta-btn" onclick="handleOrderNotes()">
+                    <i class="fas fa-download"></i> Order Notes Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Slayyin. All rights reserved. | Quality handwritten notes for commerce students.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleOrderNotes() {
+            const message = "Hi! I'm interested in ordering handwritten notes for Commerce & Management (B.Com, BBA, MBA, CA). Please share the details and pricing.";
+            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

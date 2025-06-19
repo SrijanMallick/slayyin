@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Studies Notes - Slayyin</title>
+    <meta name="description" content="Comprehensive handwritten notes for law students including LLB, LLM, BA LLB covering constitutional law, criminal law, civil law and more.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #000;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-btn {
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+        }
+
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: #000;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background: #222;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Subjects Section */
+        .subjects {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .subject-card {
+            background: #222;
+            border: 2px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+            border-color: #fff;
+            background: #333;
+        }
+
+        .subject-icon {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        .subject-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subject-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .subject-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .topic-tag {
+            background: #333;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid #444;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: #000;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: #fff;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 40px 0 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .subject-card {
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Slayyin Logo" style="height: 40px; width: auto;">
+                </a>
+                <a href="index.html#handwritten-notes" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Notes
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <h1>Law Studies Notes</h1>
+            <p>Comprehensive handwritten notes for law students covering LLB, LLM, BA LLB and other legal programs. Quality study material crafted by top law students and legal educators.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Pages of Notes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Law Subjects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">800+</div>
+                    <div class="stat-label">Students Helped</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8/5</div>
+                    <div class="stat-label">Student Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="subjects">
+        <div class="container">
+            <h2 class="section-title">Available Subjects</h2>
+            <p class="section-subtitle">Explore our comprehensive collection of handwritten notes for law studies</p>
+            
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Constitutional Law</h3>
+                    <p>Fundamental rights, directive principles, and constitutional framework</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Fundamental Rights</span>
+                        <span class="topic-tag">Directive Principles</span>
+                        <span class="topic-tag">Amendment Process</span>
+                        <span class="topic-tag">Judicial Review</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-handcuffs"></i>
+                    </div>
+                    <h3>Criminal Law</h3>
+                    <p>Indian Penal Code, criminal procedure, and criminal justice system</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">IPC</span>
+                        <span class="topic-tag">Criminal Procedure</span>
+                        <span class="topic-tag">Evidence Act</span>
+                        <span class="topic-tag">Criminology</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Civil Law</h3>
+                    <p>Contract law, tort law, and civil procedure code</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Contract Law</span>
+                        <span class="topic-tag">Tort Law</span>
+                        <span class="topic-tag">Civil Procedure</span>
+                        <span class="topic-tag">Property Law</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Corporate Law</h3>
+                    <p>Company law, securities regulation, and corporate governance</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Company Law</span>
+                        <span class="topic-tag">Securities Law</span>
+                        <span class="topic-tag">Corporate Governance</span>
+                        <span class="topic-tag">M&A</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Family Law</h3>
+                    <p>Marriage, divorce, adoption, and personal laws</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Marriage Laws</span>
+                        <span class="topic-tag">Divorce</span>
+                        <span class="topic-tag">Adoption</span>
+                        <span class="topic-tag">Personal Laws</span>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>International Law</h3>
+                    <p>Public international law, treaties, and international relations</p>
+                    <div class="subject-topics">
+                        <span class="topic-tag">Public International Law</span>
+                        <span class="topic-tag">Treaties</span>
+                        <span class="topic-tag">Human Rights</span>
+                        <span class="topic-tag">International Courts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Get Your Law Notes Today</h2>
+                <p>Join thousands of law students who have improved their grades with our comprehensive handwritten notes. Download instantly and start studying smarter.</p>
+                <button class="cta-btn" onclick="handleOrderNotes()">
+                    <i class="fas fa-download"></i> Order Notes Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Slayyin. All rights reserved. | Quality handwritten notes for law students.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleOrderNotes() {
+            const message = "Hi! I'm interested in ordering handwritten notes for Law Studies (LLB, LLM, BA LLB). Please share the details and pricing.";
+            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
