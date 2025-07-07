@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slayyin Blog - College Life & Tips</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon_io (2)/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_io (2)/favicon-32x32.png"
+    />
+    <link rel="manifest" href="favicon_io (2)/site.webmanifest" />
+
+    <style>
+      /* Blog-specific styles */
+      .blog-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        padding: 100px 5% 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 25%
+          );
+        z-index: 1;
+      }
+
+      .blog-hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .blog-hero h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .blog-hero p {
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+        color: #fff;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        opacity: 0.9;
+      }
+
+      .blog-categories {
+        padding: 60px 5%;
+        background-color: #fff;
+      }
+
+      .blog-categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .blog-category-item {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .blog-category-header {
+        height: 200px;
+        background: linear-gradient(135deg, #000, #333);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-category-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .blog-category-body {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .blog-category-body h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #000;
+      }
+
+      .blog-category-body p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        flex-grow: 1;
+      }
+
+      .blog-category-button {
+        background: #000;
+        color: #fff;
+        border: 2px solid #000;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        display: inline-block;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        align-self: flex-start;
+        text-decoration: none;
+      }
+
+      .blog-category-button:hover {
+        background: #fff;
+        color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .featured-posts {
+        padding: 80px 5%;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        position: relative;
+      }
+
+      .featured-posts::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.1;
+      }
+
+      .featured-posts-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .featured-posts h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #fff;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .post-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .post-card:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .post-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .post-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .post-card:hover .post-image img {
+        transform: scale(1.05);
+      }
+
+      .blog-category {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #fff;
+        color: #111;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .post-content {
+        padding: 25px;
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        font-size: 0.85rem;
+        color: #999;
+      }
+
+      .read-time {
+        color: #fff;
+        font-weight: 500;
+      }
+
+      .blog-date {
+        color: #ccc;
+      }
+
+      .post-content h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #fff;
+        line-height: 1.4;
+        transition: color 0.3s ease;
+      }
+
+      .post-card:hover .post-content h3 {
+        color: #ddd;
+      }
+
+      .post-excerpt {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+      }
+
+      .read-more-btn {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .read-more-btn:hover {
+        color: #ccc;
+        transform: translateX(5px);
+      }
+
+      .read-more-btn::after {
+        content: "→";
+        transition: transform 0.3s ease;
+      }
+
+      .read-more-btn:hover::after {
+        transform: translateX(3px);
+      }
+
+      /* Remove default blue text decorations */
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      a:visited {
+        color: inherit;
+      }
+
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #ccc;
+      }
+
+      /* Footer Desktop Layout */
+      .footer-links-container {
+        display: contents;
+      }
+
+      @media (min-width: 769px) {
+        .footer-links-container {
+          display: contents;
+        }
+      }
+
+      .tips-section {
+        padding: 80px 5%;
+        background: #fff;
+      }
+
+      .tips-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .tips-section h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #000;
+      }
+
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .tip-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .tip-card:hover {
+        border-color: #000;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .tip-icon {
+        font-size: 3rem;
+        color: #000;
+        margin-bottom: 20px;
+      }
+
+      .tip-card h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #000;
+      }
+
+      .tip-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .newsletter-section {
+        padding: 80px 5%;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        text-align: center;
+      }
+
+      .newsletter-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .newsletter-section h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .newsletter-section p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        outline: none;
+      }
+
+      .newsletter-btn {
+        background: #000;
+        color: #fff;
+        border: 2px solid #000;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        background: #fff;
+        color: #000;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Coming Soon Overlay Styles */
+      .coming-soon-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 9998;
+        display: none;
+      }
+
+      .coming-soon-overlay.active {
+        display: block;
+      }
+
+      .coming-soon-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 9999;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        display: none;
+        max-width: 400px;
+        width: 90%;
+      }
+
+      .coming-soon-message.active {
+        display: block;
+      }
+
+      .coming-soon-message h3 {
+        color: #000;
+        margin-bottom: 15px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .coming-soon-message p {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      /* Feature Coming Soon Notification Styles */
+      .feature-coming-soon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #000;
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        transform: translateX(400px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        display: none;
+      }
+
+      .feature-coming-soon.show {
+        transform: translateX(0);
+        opacity: 1;
+        display: block;
+      }
+
+      /* Search Results Dropdown Styles */
+      .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-height: 400px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+      }
+
+      .search-results.active {
+        display: block;
+      }
+
+      .search-result-item {
+        padding: 15px;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .search-result-item:hover,
+      .search-result-item.selected {
+        background-color: #f8f9fa;
+      }
+
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+
+      .search-result-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #000, #333);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .search-result-content {
+        flex: 1;
+      }
+
+      .search-result-title {
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+      }
+
+      .search-result-excerpt {
+        color: #666;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .search-result-meta {
+        color: #999;
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+
+      .no-search-results {
+        padding: 20px;
+        text-align: center;
+        color: #666;
+        font-style: italic;
+      }
+
+      .search-container {
+        position: relative;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .categories-grid,
+        .posts-grid,
+        .tips-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .blog-hero {
+          padding: 80px 5% 40px;
+        }
+
+        .featured-posts,
+        .tips-section,
+        .newsletter-section {
+          padding: 60px 5%;
+        }
+
+        .blog-categories {
+          padding: 40px 5%;
+        }
+
+        /* Footer Mobile Layout */
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        /* Connect section first (centered) */
+        .footer-connect {
+          width: 100%;
+          margin-bottom: 30px;
+          text-align: center;
+        }
+
+        /* Container for Quick Links and Categories */
+        .footer-links-container {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          gap: 20px;
+          max-width: 400px;
+        }
+
+        /* Quick Links and Categories side by side */
+        .footer-links-container .footer-section {
+          width: 48%;
+          text-align: left;
+        }
+
+        .footer-links-container .footer-section h3 {
+          font-size: 1rem;
+          margin-bottom: 15px;
+        }
+
+        .footer-links-container .footer-section ul {
+          font-size: 0.9rem;
+        }
+
+                    .footer-links-container .footer-section ul li {
+                margin-bottom: 8px;
+            }
+
+            /* Improve social icons for mobile */
+            .footer-connect .social-icons a {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 8px;
+                text-decoration: none;
+                flex-shrink: 0;
+                background: rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .footer-connect .social-icons a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .footer-connect .social-icons a i {
+                font-size: 1.2rem;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+
+      @media (max-width: 480px) {
+
+         .footer-connect .social-icons a {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 8px;
+                text-decoration: none;
+                flex-shrink: 0;
+                background: rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+                transform: translateX(-20px);
+            }
+
+        .post-card,
+        .category-card {
+          margin: 0 10px;
+        }
+
+        .category-content,
+        .post-content,
+        .tip-card {
+          padding: 20px;
+        }
+
+        .blog-category-button {
+          padding: 8px 16px;
+          font-size: 0.8rem;
+          letter-spacing: 0.5px;
+        }
+
+        .blog-category-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img 
+                src="website-logo.png" 
+                alt="Slayyin Logo" 
+                class="loader-logo"
+            />
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header (same as main site) -->
+    <header>
+      <div class="header-left">
+        <a href="index.html">
+          <img src="website-logo.png" alt="Slayyin Logo" class="logo" />
+        </a>
+      </div>
+      <div class="header-center">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search blog posts..."
+            id="searchInput"
+          />
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="mobile-search-icon" onclick="toggleMobileSearch()">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="user-icon-container" onclick="showComingSoonMessage(event)">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="wishlist-icon" onclick="showComingSoonMessage(event)">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="cart-icon" onclick="showComingSoonMessage(event)">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Search Container -->
+    <div class="mobile-search-container" id="mobileSearchContainer">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search blog posts..."
+          id="mobileSearchInput"
+        />
+        <div class="search-results" id="mobileSearchResults"></div>
+      </div>
+    </div>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+      <div class="blog-hero-content">
+        <h1>Slayyin Blog</h1>
+        <p>
+          Your ultimate guide to college life, fashion, networking, and everything in between. 
+          Navigate your college journey with style and confidence.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Categories Section -->
+    <section class="blog-categories">
+      <div class="blog-categories-grid">
+        <div class="blog-category-item" onclick="filterPosts('college-life')">
+          <div class="blog-category-header">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="blog-category-body">
+            <h3>College Life</h3>
+            <p>Navigate the ups and downs of college with real stories, practical advice, and insider tips for making the most of your university experience.</p>
+            <button class="blog-category-button">Explore Posts</button>
+          </div>
+        </div>
+
+        <div class="blog-category-item" onclick="filterPosts('fashion')">
+          <div class="blog-category-header">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <div class="blog-category-body">
+            <h3>College Fashion</h3>
+            <p>Stay stylish on campus with budget-friendly fashion tips, outfit ideas, and the latest trends that work for college life.</p>
+            <button class="blog-category-button">Explore Posts</button>
+          </div>
+        </div>
+
+        <div class="blog-category-item" onclick="filterPosts('networking')">
+          <div class="blog-category-header">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="blog-category-body">
+            <h3>Networking Tips</h3>
+            <p>Build meaningful connections that will shape your future. Learn how to network effectively in college and beyond.</p>
+            <button class="blog-category-button">Explore Posts</button>
+          </div>
+        </div>
+
+        <div class="blog-category-item" onclick="filterPosts('mistakes')">
+          <div class="blog-category-header">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="blog-category-body">
+            <h3>Common Mistakes</h3>
+            <p>Learn from others' experiences. Discover the most common college mistakes and how to avoid them for a smoother journey.</p>
+            <button class="blog-category-button">Explore Posts</button>
+          </div>
+        </div>
+
+        <div class="blog-category-item" onclick="filterPosts('essentials')">
+          <div class="blog-category-header">
+            <i class="fas fa-bookmark"></i>
+          </div>
+          <div class="blog-category-body">
+            <h3>College Essentials</h3>
+            <p>Everything you need to know about college must-haves, from dorm room essentials to academic tools and study resources.</p>
+            <button class="blog-category-button">Explore Posts</button>
+          </div>
+        </div>
+
+        <div class="blog-category-item" onclick="filterPosts('career')">
+          <div class="blog-category-header">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="blog-category-body">
+            <h3>Career Prep</h3>
+            <p>Get ahead in your career journey with internship tips, resume advice, and strategies for landing your dream job after graduation.</p>
+            <button class="blog-category-button">Explore Posts</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Posts Section -->
+    <section class="featured-posts">
+      <div class="featured-posts-content">
+        <h2>Featured Posts</h2>
+        <div class="posts-grid">
+          <article class="post-card" data-category="college-life">
+            <div class="post-image">
+              <img src="dornroom.jpeg" alt="Dorm Room Setup Guide" />
+              <div class="blog-category">Lifestyle</div>
+            </div>
+            <div class="post-content">
+              <h3>First Year Dorm Room Setup: Creating Your Perfect Space</h3>
+              <p class="post-excerpt">
+                Transform your tiny dorm room into a stylish and functional living space. 
+                From storage hacks to decor ideas that won't break the bank.
+              </p>
+              <div class="post-meta">
+                <span class="read-time">5 min read</span>
+                <span class="blog-date">July 2025</span>
+              </div>
+              <a href="blog-dorm-room-setup.html" class="read-more-btn">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card" data-category="fashion">
+            <div class="post-image">
+              <img src="Campus Fashion.jpeg" alt="Campus Fashion Guide" />
+              <div class="blog-category">Fashion</div>
+            </div>
+            <div class="post-content">
+              <h3>Campus Style on a Budget: Looking Good for Less</h3>
+              <p class="post-excerpt">
+                Discover how to build a versatile college wardrobe without spending a fortune. 
+                Mix and match essentials that work for classes, parties, and everything in between.
+              </p>
+              <div class="post-meta">
+                <span class="read-time">7 min read</span>
+                <span class="blog-date">July 2025</span>
+              </div>
+              <a href="blog-campus-fashion.html" class="read-more-btn">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card" data-category="networking">
+            <div class="post-image">
+              <img src="networking.jpeg" alt="Networking Tips for Students" />
+              <div class="blog-category">Career</div>
+            </div>
+            <div class="post-content">
+              <h3>Building Your Network: College Edition</h3>
+              <p class="post-excerpt">
+                Master the art of networking in college. From professor office hours to 
+                student organizations, learn how to build connections that last.
+              </p>
+              <div class="post-meta">
+                <span class="read-time">6 min read</span>
+                <span class="blog-date">July 2025</span>
+              </div>
+              <a href="blog-networking-tips.html" class="read-more-btn">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card" data-category="mistakes">
+            <div class="post-image">
+              <img src="freshmen.jpeg" alt="Freshman Mistakes to Avoid" />
+              <div class="blog-category">Tips</div>
+            </div>
+            <div class="post-content">
+              <h3>5 Freshman Mistakes That Can Ruin Your GPA</h3>
+              <p class="post-excerpt">
+                Avoid these common pitfalls that trip up new college students. 
+                Learn from others' experiences and set yourself up for academic success.
+              </p>
+              <div class="post-meta">
+                <span class="read-time">8 min read</span>
+                <span class="blog-date">July 2025</span>
+              </div>
+              <a href="blog-freshman-mistakes.html" class="read-more-btn">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card" data-category="essentials">
+            <div class="post-image">
+              <img src="Essentials.jpeg" alt="College Packing Essentials" />
+              <div class="blog-category">Lifestyle</div>
+            </div>
+            <div class="post-content">
+              <h3>Ultimate College Packing Checklist for 2025</h3>
+              <p class="post-excerpt">
+                Don't forget anything important! Our comprehensive checklist covers everything 
+                from dorm essentials to tech gear you'll actually use.
+              </p>
+              <div class="post-meta">
+                <span class="read-time">10 min read</span>
+                <span class="blog-date">July 2025</span>
+              </div>
+              <a href="blog-college-packing.html" class="read-more-btn">Read More</a>
+            </div>
+          </article>
+
+          <article class="post-card" data-category="career">
+            <div class="post-image">
+              <img src="Internship.jpeg" alt="Internship Success Guide" />
+              <div class="blog-category">Career</div>
+            </div>
+            <div class="post-content">
+              <h3>Landing Your First Internship: A Step-by-Step Guide</h3>
+              <p class="post-excerpt">
+                Start building your career while still in college. Get insider tips on 
+                finding, applying for, and securing internships that matter.
+              </p>
+              <div class="post-meta">
+                <span class="read-time">12 min read</span>
+                <span class="blog-date">July 2025</span>
+              </div>
+              <a href="blog-internship-guide.html" class="read-more-btn">Read More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Tips Section -->
+    <section class="tips-section">
+      <div class="tips-container">
+        <h2>Quick College Tips</h2>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Time Management</h3>
+            <p>Use the 25-5 technique: 25 minutes of focused study followed by a 5-minute break. Perfect for maintaining concentration during long study sessions.</p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3>Budget Smart</h3>
+            <p>Track your spending with a simple app. Set weekly limits for entertainment and stick to them. Your future self will thank you!</p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Mental Health</h3>
+            <p>Don't hesitate to use campus counseling services. They're free, confidential, and can help you navigate the stresses of college life.</p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Healthy Eating</h3>
+            <p>Keep healthy snacks in your dorm. Nuts, fruits, and protein bars can help you avoid the late-night junk food runs.</p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-moon"></i>
+            </div>
+            <h3>Sleep Schedule</h3>
+            <p>Maintain a consistent sleep schedule, even on weekends. 7-9 hours of sleep will improve your grades and overall well-being.</p>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Get Involved</h3>
+            <p>Join at least one club or organization. It's the best way to make friends, build your resume, and find your passion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Get the latest college tips, fashion trends, and life hacks delivered straight to your inbox. Join thousands of students who are already slaying their college experience!</p>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer (same as main site) -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section footer-connect">
+          <h3 style="transform: translateX(-30px);">Connect</h3>
+                          <div class="social-icons">
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-instagram"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-linkedin"></i></a>
+                </div>
+        </div>
+        <div class="footer-links-container">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="slayyin-blog.html">Blog</a></li>
+              <li><a href="customize.html">Customize</a></li>
+              <li><a href="policies.html">Policies</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#" onclick="filterPosts('college-life')">College Life</a></li>
+              <li><a href="#" onclick="filterPosts('fashion')">Fashion</a></li>
+              <li><a href="#" onclick="filterPosts('networking')">Networking</a></li>
+              <li><a href="#" onclick="filterPosts('career')">Career Tips</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Slayyin. All rights reserved. | <a href="policies.html">Privacy Policy</a></p>
+      </div>
+    </footer>
+
+    <!-- Coming Soon Overlay and Message -->
+    <div class="coming-soon-overlay" onclick="hideComingSoonMessage()"></div>
+    <div class="coming-soon-message">
+      <h3>Coming Soon!</h3>
+      <p>This feature is currently under development.</p>
+      <p>Stay tuned for exciting updates!</p>
+    </div>
+
+    <!-- Feature Coming Soon Notification -->
+    <div class="feature-coming-soon">
+      <span>Feature coming soon!</span>
+    </div>
+
+    <script src="index.js"></script>
+
+    <!-- Page Loader JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+            
+            // Simulate loading progress
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) {
+                    progress = 90;
+                }
+                progressBar.style.width = progress + '%';
+            }, 100);
+            
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                // Complete the progress bar
+                progressBar.style.width = '100%';
+                
+                // Wait a moment then hide loader
+                setTimeout(() => {
+                    clearInterval(progressInterval);
+                    loader.classList.add('hidden');
+                    
+                    // Remove loader from DOM after transition
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 300);
+            });
+            
+            // Fallback: hide loader after maximum time
+            setTimeout(() => {
+                if (!loader.classList.contains('hidden')) {
+                    clearInterval(progressInterval);
+                    progressBar.style.width = '100%';
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 5000); // 5 seconds maximum
+        });
+    </script>
+
+    <script>
+      // Blog-specific JavaScript
+      function filterPosts(category) {
+        const posts = document.querySelectorAll('.post-card');
+        posts.forEach(post => {
+          if (category === 'all' || post.dataset.category === category) {
+            post.style.display = 'block';
+          } else {
+            post.style.display = 'none';
+          }
+        });
+        
+        // Scroll to posts section
+        document.querySelector('.featured-posts').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      }
+
+      function subscribeNewsletter(event) {
+        event.preventDefault();
+        const email = event.target.querySelector('.newsletter-input').value;
+        
+        // Show success message
+        showFeatureComingSoon('Thanks for subscribing! Newsletter feature coming soon.');
+        
+        // Clear the input
+        event.target.querySelector('.newsletter-input').value = '';
+      }
+
+      function showFeatureComingSoon(message = 'Feature coming soon!') {
+        const notification = document.querySelector('.feature-coming-soon');
+        notification.querySelector('span').textContent = message;
+        notification.classList.add('show');
+        
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 3000);
+      }
+
+      // Coming Soon Message Functions
+      function showComingSoonMessage(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const overlay = document.querySelector('.coming-soon-overlay');
+        const message = document.querySelector('.coming-soon-message');
+        
+        if (overlay && message) {
+          overlay.classList.add('active');
+          message.classList.add('active');
+        }
+      }
+
+      function hideComingSoonMessage() {
+        const overlay = document.querySelector('.coming-soon-overlay');
+        const message = document.querySelector('.coming-soon-message');
+        
+        if (overlay && message) {
+          overlay.classList.remove('active');
+          message.classList.remove('active');
+        }
+      }
+
+      // Mobile Search Toggle Function
+      function toggleMobileSearch() {
+        const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+        mobileSearchContainer.classList.toggle('active');
+
+        // Focus on the search input when opening
+        if (mobileSearchContainer.classList.contains('active')) {
+          document.getElementById('mobileSearchInput').focus();
+        }
+      }
+
+      // Close mobile search when clicking outside
+      document.addEventListener('click', function(event) {
+        const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+        const mobileSearchIcon = document.querySelector('.mobile-search-icon');
+
+        if (mobileSearchContainer && mobileSearchContainer.classList.contains('active')) {
+          if (!mobileSearchContainer.contains(event.target) && 
+              !mobileSearchIcon.contains(event.target)) {
+            mobileSearchContainer.classList.remove('active');
+          }
+        }
+        
+        // Close search results dropdown when clicking outside
+        const searchContainers = document.querySelectorAll('.search-container');
+        searchContainers.forEach(container => {
+          const searchResults = container.querySelector('.search-results');
+          if (searchResults && searchResults.classList.contains('active')) {
+            if (!container.contains(event.target)) {
+              searchResults.classList.remove('active');
+            }
+          }
+        });
+      });
+
+            // Search functionality for blog
+      function initializeBlogSearch() {
+        const searchInputs = document.querySelectorAll('.search-bar');
+        
+        searchInputs.forEach(input => {
+          // Remove any existing event listeners by cloning
+          const newInput = input.cloneNode(true);
+          input.parentNode.replaceChild(newInput, input);
+          
+          // Add blog-specific search handler
+          newInput.addEventListener('input', function() {
+            performBlogSearch(this.value);
+          });
+          
+          // Handle keyboard navigation
+          newInput.addEventListener('keydown', function(e) {
+            const searchResults = this.parentElement.querySelector('.search-results');
+            if (!searchResults || !searchResults.classList.contains('active')) return;
+            
+            const items = searchResults.querySelectorAll('.search-result-item');
+            let currentIndex = -1;
+            
+            // Find currently selected item
+            items.forEach((item, index) => {
+              if (item.classList.contains('selected')) {
+                currentIndex = index;
+              }
+            });
+            
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              currentIndex = Math.min(currentIndex + 1, items.length - 1);
+              updateSelection(items, currentIndex);
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              currentIndex = Math.max(currentIndex - 1, -1);
+              updateSelection(items, currentIndex);
+            } else if (e.key === 'Enter') {
+              e.preventDefault();
+              if (currentIndex >= 0 && items[currentIndex]) {
+                items[currentIndex].click();
+              }
+            } else if (e.key === 'Escape') {
+              searchResults.classList.remove('active');
+              this.blur();
+            }
+          });
+          
+          // Clear selection when input loses focus
+          newInput.addEventListener('blur', function() {
+            setTimeout(() => {
+              const searchResults = this.parentElement.querySelector('.search-results');
+              if (searchResults) {
+                const items = searchResults.querySelectorAll('.search-result-item');
+                items.forEach(item => item.classList.remove('selected'));
+              }
+            }, 200); // Delay to allow click events to fire
+          });
+        });
+      }
+      
+      function updateSelection(items, selectedIndex) {
+        items.forEach((item, index) => {
+          if (index === selectedIndex) {
+            item.classList.add('selected');
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('selected');
+          }
+        });
+      }
+      
+      function performBlogSearch(searchValue) {
+        const searchTerm = searchValue.toLowerCase().trim();
+        const posts = document.querySelectorAll('.post-card');
+        
+        // Get the search results container for the current input
+        const currentInput = document.activeElement;
+        let searchResultsContainer;
+        
+        if (currentInput && currentInput.classList.contains('search-bar')) {
+          searchResultsContainer = currentInput.parentElement.querySelector('.search-results');
+        }
+        
+        if (!searchResultsContainer) {
+          // Fallback to any search results container
+          searchResultsContainer = document.querySelector('.search-results');
+        }
+        
+        if (!searchResultsContainer) {
+          console.warn('Search results container not found');
+          return;
+        }
+        
+        // Clear previous results
+        searchResultsContainer.innerHTML = '';
+        
+        if (searchTerm === '') {
+          searchResultsContainer.classList.remove('active');
+          return;
+        }
+        
+        if (searchTerm.length < 2) {
+          searchResultsContainer.classList.remove('active');
+          return;
+        }
+        
+        const matchingPosts = [];
+        
+        posts.forEach(post => {
+          const titleElement = post.querySelector('h3');
+          const excerptElement = post.querySelector('.post-excerpt');
+          const metaElement = post.querySelector('.post-meta');
+          const linkElement = post.querySelector('a[href]');
+          
+          if (titleElement && excerptElement) {
+            const title = titleElement.textContent.toLowerCase();
+            const excerpt = excerptElement.textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+              // Get category icon
+              const categoryIcon = getCategoryIcon(post.dataset.category);
+              
+              // Get meta information
+              let metaText = '';
+              if (metaElement) {
+                metaText = metaElement.textContent.trim();
+              }
+              
+              // Get link URL
+              let linkUrl = '#';
+              if (linkElement) {
+                linkUrl = linkElement.getAttribute('href');
+              }
+              
+              matchingPosts.push({
+                title: titleElement.textContent,
+                excerpt: excerptElement.textContent,
+                meta: metaText,
+                icon: categoryIcon,
+                url: linkUrl,
+                category: post.dataset.category || 'general'
+              });
+            }
+          }
+        });
+        
+        if (matchingPosts.length === 0) {
+          searchResultsContainer.innerHTML = `
+            <div class="no-search-results">
+              <i class="fas fa-search" style="margin-right: 8px;"></i>
+              No blog posts found for "${searchTerm}"
+            </div>
+          `;
+        } else {
+          searchResultsContainer.innerHTML = matchingPosts.map(post => `
+            <div class="search-result-item" onclick="window.location.href='${post.url}'">
+              <div class="search-result-icon">
+                <i class="${post.icon}"></i>
+              </div>
+              <div class="search-result-content">
+                <div class="search-result-title">${post.title}</div>
+                <div class="search-result-excerpt">${post.excerpt}</div>
+                <div class="search-result-meta">${post.meta}</div>
+              </div>
+            </div>
+          `).join('');
+        }
+        
+        searchResultsContainer.classList.add('active');
+      }
+      
+      function getCategoryIcon(category) {
+        const iconMap = {
+          'college-life': 'fas fa-graduation-cap',
+          'fashion': 'fas fa-tshirt',
+          'networking': 'fas fa-users',
+          'mistakes': 'fas fa-exclamation-triangle',
+          'essentials': 'fas fa-clipboard-list',
+          'career': 'fas fa-briefcase'
+        };
+        return iconMap[category] || 'fas fa-file-alt';
+      }
+
+      // Initialize search when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize immediately
+        initializeBlogSearch();
+        
+        // Also initialize after a delay to override any conflicting scripts
+        setTimeout(initializeBlogSearch, 200);
+        
+        // And one more time to be absolutely sure
+        setTimeout(initializeBlogSearch, 500);
+      });
+    </script>
+  </body>
+</html> 
