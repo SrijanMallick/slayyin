@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Year Dorm Room Setup: Creating Your Perfect Space | Slayyin Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io (2)/favicon-32x32.png">
+    <style>
+        .blog-post-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 120px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-post-hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+                              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 25%);
+            z-index: 1;
+        }
+        .blog-post-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-post-hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            color: #ccc;
+        }
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blog-excerpt {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .blog-article {
+            padding: 80px 5%;
+            background: #fff;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .article-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 40px 0 20px;
+            color: #000;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+        }
+        .article-content h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #000;
+        }
+        .article-content ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        .tip-box {
+            background: #f8f9fa;
+            border-left: 5px solid #000;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .tip-box h4 {
+            font-family: "Montserrat", sans-serif;
+            margin: 0 0 10px;
+            color: #000;
+            font-weight: 600;
+        }
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .budget-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        .budget-card h4 {
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .back-to-blog {
+            text-align: center;
+            padding: 40px 5%;
+            background: #f8f9fa;
+        }
+        .back-btn {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .back-btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            .blog-meta { 
+                flex-direction: row; 
+                gap: 15px; 
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .blog-meta span {
+                gap: 5px;
+            }
+            .blog-post-hero { padding: 100px 5% 60px; }
+            .blog-article { padding: 60px 5%; }
+            .article-content { font-size: 1rem; }
+            .budget-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img 
+                src="website-logo.png" 
+                alt="Slayyin Logo" 
+                class="loader-logo"
+            />
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="website-logo.png" alt="Slayyin Logo" class="logo" />
+            </a>
+        </div>
+        <div class="header-center">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="Search blog posts..." id="searchInput" />
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="mobile-search-icon" onclick="toggleMobileSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-icon-container" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="wishlist-icon" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="cart-icon" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-post-hero">
+        <div class="blog-post-content">
+            <h1>First Year Dorm Room Setup: Creating Your Perfect Space</h1>
+            <div class="blog-meta">
+                <span><i class="fas fa-calendar"></i> December 15, 2024</span>
+                <span><i class="fas fa-tag"></i> College Life</span>
+                <span><i class="fas fa-clock"></i> 8 min read</span>
+            </div>
+            <p class="blog-excerpt">
+                Transform your tiny dorm room into a stylish and functional living space. 
+                From storage hacks to decor ideas that won't break the bank.
+            </p>
+        </div>
+    </section>
+
+    <article class="blog-article">
+        <div class="article-content">
+            <p>Starting college is exciting, but setting up your first dorm room can feel overwhelming. You're working with limited space, a tight budget, and probably sharing with a roommate you've never met. Don't worry – with the right approach, you can create a space that's both functional and reflects your personality.</p>
+
+            <h2>Before You Start: The Essentials</h2>
+            
+            <h3>Coordinate with Your Roommate</h3>
+            <p>Before you buy anything, reach out to your roommate! You don't need two mini fridges, two vacuum cleaners, or two coffee makers. Create a shared list of bigger items and decide who brings what. This saves money and space.</p>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                <p>Use Google Docs or a shared note app to list who's bringing what. Include contact info and move-in times to coordinate delivery and setup.</p>
+            </div>
+
+            <h3>Know Your Space</h3>
+            <p>Check your college's housing website for room dimensions and what furniture is provided. Most dorms include:</p>
+            <ul>
+                <li>Twin XL bed with mattress</li>
+                <li>Desk and chair</li>
+                <li>Dresser or wardrobe</li>
+                <li>Basic lighting</li>
+            </ul>
+
+            <h2>Smart Shopping Strategies</h2>
+
+            <h3>Timing Is Everything</h3>
+            <p>Shop strategically to get the best deals:</p>
+
+            <div class="budget-grid">
+                <div class="budget-card">
+                    <h4>End of Season Sales</h4>
+                    <p>Buy winter clothes in February, summer clothes in August. You'll save 50-70% on items you'll wear next year.</p>
+                </div>
+                <div class="budget-card">
+                    <h4>Back-to-School Sales</h4>
+                    <p>July-August offers great deals on basics like jeans, t-shirts, and backpacks. Stock up on essentials.</p>
+                </div>
+                <div class="budget-card">
+                    <h4>Black Friday/Cyber Monday</h4>
+                    <p>Plan ahead and make a list. Focus on investment pieces like coats, boots, and quality jeans.</p>
+                </div>
+                <div class="budget-card">
+                    <h4>Post-Holiday Sales</h4>
+                    <p>January is perfect for buying winter accessories, party clothes, and formal wear for next year.</p>
+                </div>
+            </div>
+
+            <h3>Where to Shop on a Budget</h3>
+
+            <h4>Online Resources</h4>
+            <ul>
+                <li><strong>Depop/Vinted:</strong> Secondhand clothes from other college students</li>
+                <li><strong>Thredup:</strong> Online thrift store with quality pieces</li>
+                <li><strong>Poshmark:</strong> Designer and brand-name clothes at discounted prices</li>
+                <li><strong>Facebook Marketplace:</strong> Local deals, especially great for vintage finds</li>
+                <li><strong>ASOS Outlet:</strong> Trendy pieces at significant discounts</li>
+            </ul>
+
+            <h4>Physical Stores</h4>
+            <ul>
+                <li><strong>Thrift stores:</strong> Especially in college towns – other students donate great pieces</li>
+                <li><strong>Outlet malls:</strong> Brand names at lower prices</li>
+                <li><strong>Target:</strong> Great for basics and trendy accessories</li>
+                <li><strong>Old Navy:</strong> Affordable basics that are on-trend</li>
+                <li><strong>Uniqlo:</strong> Quality basics at reasonable prices</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-search"></i> Thrift Store Success Tips</h4>
+                <p>Go regularly (inventory changes fast), check multiple locations, shop in affluent areas for better quality pieces, and always try things on – vintage sizing runs differently than modern clothes.</p>
+            </div>
+
+            <h2>College-Specific Outfit Formulas</h2>
+
+            <h3>The Comfortable Class Look</h3>
+            <p><strong>Formula:</strong> Comfortable jeans/leggings + basic tee/sweatshirt + sneakers + backpack</p>
+            <p><strong>Upgrade tip:</strong> Swap the basic tee for a cute crop top or add a denim jacket</p>
+
+            <h3>Study Session Chic</h3>
+            <p><strong>Formula:</strong> Athleisure leggings + oversized sweater + comfortable sneakers</p>
+            <p><strong>Upgrade tip:</strong> Choose leggings in an interesting color or pattern, add cute accessories</p>
+
+            <h3>Campus Coffee Date</h3>
+            <p><strong>Formula:</strong> Well-fitting jeans + cute top + cardigan/jacket + ankle boots or clean sneakers</p>
+            <p><strong>Upgrade tip:</strong> Add delicate jewelry or a cute crossbody bag</p>
+
+            <h3>Night Out Ready</h3>
+            <p><strong>Formula:</strong> Black jeans/skirt + statement top + heels/cute flats + bold accessories</p>
+            <p><strong>Upgrade tip:</strong> Layer on jewelry, add a bold lip color, style your hair differently</p>
+
+            <h3>Presentation Day Professional</h3>
+            <p><strong>Formula:</strong> Dress pants/pencil skirt + button-down shirt + blazer + closed-toe shoes</p>
+            <p><strong>Upgrade tip:</strong> Ensure everything fits well – consider getting key pieces tailored</p>
+
+            <h2>Seasonal Adaptation Strategies</h2>
+
+            <h3>Fall Layering</h3>
+            <ul>
+                <li>Invest in a quality cardigan in a neutral color</li>
+                <li>Scarves are an affordable way to change up outfits</li>
+                <li>Ankle boots work with everything from dresses to jeans</li>
+                <li>A good denim or leather jacket is versatile and timeless</li>
+            </ul>
+
+            <h3>Winter Warmth</h3>
+            <ul>
+                <li>One really good coat is better than several cheap ones</li>
+                <li>Invest in quality boots that can handle weather and walking</li>
+                <li>Thermal underlayers let you wear summer clothes longer</li>
+                <li>Beanies and gloves can be both functional and stylish</li>
+            </ul>
+
+            <h3>Spring Transition</h3>
+            <ul>
+                <li>Light cardigans and kimono-style jackets</li>
+                <li>Start incorporating lighter colors and patterns</li>
+                <li>Transition to lighter shoes as weather permits</li>
+                <li>A good rain jacket is essential</li>
+            </ul>
+
+            <h3>Summer Essentials</h3>
+            <ul>
+                <li>Breathable fabrics like cotton and linen</li>
+                <li>Comfortable sandals for walking across hot pavement</li>
+                <li>Light layers for air-conditioned buildings</li>
+                <li>Sun protection: hats and sunglasses</li>
+            </ul>
+
+            <h2>Accessorizing on a Dime</h2>
+
+            <h3>Jewelry</h3>
+            <p>A few key pieces can transform any outfit:</p>
+            <ul>
+                <li><strong>Simple gold or silver chain:</strong> Works with everything</li>
+                <li><strong>Statement earrings:</strong> Instantly elevate a basic outfit</li>
+                <li><strong>Classic watch:</strong> Functional and stylish</li>
+                <li><strong>Simple rings:</strong> Add interest without being overwhelming</li>
+            </ul>
+
+            <h3>Bags</h3>
+            <ul>
+                <li><strong>Good backpack:</strong> Practical for daily use</li>
+                <li><strong>Small crossbody:</strong> For when you don't need books</li>
+                <li><strong>Tote bag:</strong> Versatile for shopping, beach days, or carrying extra items</li>
+            </ul>
+
+            <h3>Budget-Friendly Sources</h3>
+            <ul>
+                <li>Dollar stores often have surprising jewelry finds</li>
+                <li>Five Below has trendy accessories</li>
+                <li>Amazon basics for classic pieces</li>
+                <li>Local markets for unique, handmade items</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-star"></i> DIY Upgrade Ideas</h4>
+                <p>Customize thrift finds with patches, embroidery, or fabric paint. Cut old jeans into shorts. Turn long dresses into skirts. Pinterest has endless inspiration for breathing new life into old clothes.</p>
+            </div>
+
+            <h2>Caring for Your Clothes (Save Money Long-Term)</h2>
+
+            <h3>Washing Wisdom</h3>
+            <ul>
+                <li>Read care labels – some things really do need special care</li>
+                <li>Wash darks and lights separately to prevent fading/bleeding</li>
+                <li>Use cold water for most loads (saves energy and prevents shrinking)</li>
+                <li>Don't over-dry clothes in the dryer – it causes wear and tear</li>
+            </ul>
+
+            <h3>Storage Solutions</h3>
+            <ul>
+                <li>Invest in good hangers to maintain shape</li>
+                <li>Fold knits instead of hanging them</li>
+                <li>Store seasonal clothes properly to prevent damage</li>
+                <li>Use cedar blocks or lavender sachets instead of harsh mothballs</li>
+            </ul>
+
+            <h3>Quick Fixes</h3>
+            <p>Learn basic repair skills:</p>
+            <ul>
+                <li>Sewing on buttons</li>
+                <li>Hemming pants</li>
+                <li>Fixing small holes or tears</li>
+                <li>Using fabric shaver to remove pills</li>
+            </ul>
+
+            <h2>Building Confidence with Your Style</h2>
+
+            <h3>Find Your Personal Style</h3>
+            <p>College is the perfect time to experiment:</p>
+            <ul>
+                <li>Try different aesthetics: preppy, bohemian, minimalist, edgy</li>
+                <li>Pay attention to what makes you feel confident</li>
+                <li>Don't be afraid to mix styles</li>
+                <li>Remember that style evolves – what you love now might change</li>
+            </ul>
+
+            <h3>Fit Is Everything</h3>
+            <p>A $10 thrift store find that fits perfectly will look better than a $100 item that doesn't fit right. Consider:</p>
+            <ul>
+                <li>Basic tailoring for pants length and waist adjustments</li>
+                <li>Learning to recognize good fit when shopping</li>
+                <li>Understanding your body proportions and what works for you</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-heart"></i> Confidence Boost</h4>
+                <p>The best accessory you can wear is confidence. When you feel good in what you're wearing, it shows. Don't let anyone make you feel bad about your budget or style choices – you're being smart with your money while still expressing yourself.</p>
+            </div>
+
+            <h2>Special Occasion Dressing</h2>
+
+            <h3>Formal Events</h3>
+            <p>College has its share of formal events. Instead of buying expensive dresses:</p>
+            <ul>
+                <li>Rent formal wear through services like Rent the Runway</li>
+                <li>Borrow from friends (and lend to them too)</li>
+                <li>Shop consignment stores in affluent areas</li>
+                <li>Buy classic pieces that work for multiple events</li>
+            </ul>
+
+            <h3>Job Interviews</h3>
+            <p>Professional clothes are an investment in your future:</p>
+            <ul>
+                <li>One well-fitting suit can create multiple looks</li>
+                <li>Mix and match blazers with different bottoms</li>
+                <li>Keep it simple and classic rather than trendy</li>
+                <li>Some career centers loan professional clothes to students</li>
+            </ul>
+
+            <h2>Common Fashion Mistakes to Avoid</h2>
+
+            <ul>
+                <li><strong>Buying something just because it's cheap:</strong> If you won't wear it, it's not a deal</li>
+                <li><strong>Following every trend:</strong> Stick to trends that work with your existing wardrobe</li>
+                <li><strong>Ignoring fit:</strong> Ill-fitting clothes never look good, regardless of price</li>
+                <li><strong>Not considering cost per wear:</strong> A $50 jacket you wear 100 times is cheaper than a $20 shirt you wear twice</li>
+                <li><strong>Impulse shopping:</strong> Always sleep on non-essential purchases</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+
+            <p>Building a great college wardrobe on a budget is totally achievable with some planning and creativity. Remember, style isn't about having the most expensive clothes – it's about putting together looks that make you feel confident and express your personality.</p>
+
+            <p>Start with basics, shop smart, take care of what you own, and don't be afraid to experiment. College is a time for discovering who you are, and your style is part of that journey.</p>
+
+            <p>Most importantly, don't let anyone make you feel bad about your budget or where you shop. Being resourceful and thrifty are valuable life skills that will serve you well beyond college.</p>
+
+            <p>Now go out there and slay on a budget! 💫</p>
+        </div>
+    </article>
+
+    <section class="back-to-blog">
+        <a href="slayyin-blog.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-connect">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-instagram"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-container">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="slayyin-blog.html">Blog</a></li>
+                        <li><a href="customize.html">Customize</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Blog Categories</h3>
+                    <ul>
+                        <li><a href="slayyin-blog.html#college-life">College Life</a></li>
+                        <li><a href="slayyin-blog.html#fashion">Fashion</a></li>
+                        <li><a href="slayyin-blog.html#networking">Networking</a></li>
+                        <li><a href="slayyin-blog.html#career">Career Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Slayyin. All rights reserved. | <a href="policies.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <div class="coming-soon-overlay" onclick="hideComingSoonMessage()"></div>
+    <div class="coming-soon-message">
+        <h3>Coming Soon!</h3>
+        <p>This feature is currently under development.</p>
+        <p>Stay tuned for exciting updates!</p>
+    </div>
+
+    <style>
+        /* Coming Soon Overlay Styles */
+        .coming-soon-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9998;
+            display: none;
+        }
+
+        .coming-soon-overlay.active {
+            display: block;
+        }
+
+        .coming-soon-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: none;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .coming-soon-message.active {
+            display: block;
+        }
+
+        .coming-soon-message h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .coming-soon-message p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Feature Coming Soon Notification Styles */
+        .feature-coming-soon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .feature-coming-soon.show {
+            transform: translateX(0);
+            opacity: 1;
+            display: block;
+        }
+
+        /* Footer Desktop Layout */
+        .footer-links-container {
+            display: contents;
+        }
+
+        /* Footer Mobile Layout */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* Connect section first (centered) */
+            .footer-connect {
+                width: 100%;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            /* Container for Quick Links and Categories */
+            .footer-links-container {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                gap: 20px;
+                max-width: 400px;
+            }
+
+            /* Quick Links and Categories side by side */
+            .footer-links-container .footer-section {
+                width: 48%;
+                text-align: left;
+            }
+
+            .footer-links-container .footer-section h3 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-links-container .footer-section ul {
+                font-size: 0.9rem;
+            }
+
+            .footer-links-container .footer-section ul li {
+                margin-bottom: 8px;
+            }
+
+            /* Improve social icons for mobile */
+            .footer-connect .social-icons a {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 8px;
+                text-decoration: none;
+                flex-shrink: 0;
+                background: rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .footer-connect .social-icons a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .footer-connect .social-icons a i {
+                font-size: 1.2rem;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+    </style>
+
+    <script src="index.js"></script>
+
+    <!-- Page Loader JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+            
+            // Simulate loading progress
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) {
+                    progress = 90;
+                }
+                progressBar.style.width = progress + '%';
+            }, 100);
+            
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                // Complete the progress bar
+                progressBar.style.width = '100%';
+                
+                // Wait a moment then hide loader
+                setTimeout(() => {
+                    clearInterval(progressInterval);
+                    loader.classList.add('hidden');
+                    
+                    // Remove loader from DOM after transition
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 300);
+            });
+            
+            // Fallback: hide loader after maximum time
+            setTimeout(() => {
+                if (!loader.classList.contains('hidden')) {
+                    clearInterval(progressInterval);
+                    progressBar.style.width = '100%';
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 5000); // 5 seconds maximum
+        });
+    </script>
+
+    <script>
+        // Coming Soon Message Functions
+        function showComingSoonMessage(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            
+            if (overlay && message) {
+                overlay.classList.add('active');
+                message.classList.add('active');
+            }
+        }
+
+        function hideComingSoonMessage() {
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            
+            if (overlay && message) {
+                overlay.classList.remove('active');
+                message.classList.remove('active');
+            }
+        }
+
+        // Mobile Search Toggle Function
+        function toggleMobileSearch() {
+            const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+            mobileSearchContainer.classList.toggle('active');
+
+            // Focus on the search input when opening
+            if (mobileSearchContainer.classList.contains('active')) {
+                document.getElementById('mobileSearchInput').focus();
+            }
+        }
+
+        // Close mobile search when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+            const mobileSearchIcon = document.querySelector('.mobile-search-icon');
+
+            if (mobileSearchContainer && mobileSearchContainer.classList.contains('active')) {
+                if (!mobileSearchContainer.contains(event.target) && 
+                    !mobileSearchIcon.contains(event.target)) {
+                    mobileSearchContainer.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

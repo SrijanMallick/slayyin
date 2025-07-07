@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Your Network: College Edition | Slayyin Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io (2)/favicon-32x32.png">
+    <style>
+        .blog-post-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 120px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-post-hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+                              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 25%);
+            z-index: 1;
+        }
+        .blog-post-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-post-hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            color: #ccc;
+        }
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blog-excerpt {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .blog-article {
+            padding: 80px 5%;
+            background: #fff;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .article-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 40px 0 20px;
+            color: #000;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+        }
+        .article-content h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #000;
+        }
+        .article-content ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        .tip-box {
+            background: #f8f9fa;
+            border-left: 5px solid #000;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .tip-box h4 {
+            font-family: "Montserrat", sans-serif;
+            margin: 0 0 10px;
+            color: #000;
+            font-weight: 600;
+        }
+        .networking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .networking-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+        }
+        .networking-card i {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 15px;
+        }
+        .networking-card h4 {
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .back-to-blog {
+            text-align: center;
+            padding: 40px 5%;
+            background: #f8f9fa;
+        }
+        .back-btn {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .back-btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            .blog-meta { 
+                flex-direction: row; 
+                gap: 15px; 
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .blog-meta span {
+                gap: 5px;
+            }
+            .blog-post-hero { padding: 100px 5% 60px; }
+            .blog-article { padding: 60px 5%; }
+            .article-content { font-size: 1rem; }
+            .networking-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img 
+                src="website-logo.png" 
+                alt="Slayyin Logo" 
+                class="loader-logo"
+            />
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="website-logo.png" alt="Slayyin Logo" class="logo" />
+            </a>
+        </div>
+        <div class="header-center">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="Search blog posts..." id="searchInput" />
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="mobile-search-icon" onclick="toggleMobileSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-icon-container" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="wishlist-icon" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="cart-icon" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-post-hero">
+        <div class="blog-post-content">
+            <h1>Building Your Network: College Edition</h1>
+            <div class="blog-meta">
+                <span><i class="fas fa-calendar"></i> December 10, 2024</span>
+                <span><i class="fas fa-tag"></i> Networking</span>
+                <span><i class="fas fa-clock"></i> 12 min read</span>
+            </div>
+            <p class="blog-excerpt">
+                Master the art of networking in college. From professor office hours to 
+                student organizations, learn how to build connections that last.
+            </p>
+        </div>
+    </section>
+
+    <article class="blog-article">
+        <div class="article-content">
+            <p>Networking isn't just about collecting business cards at stuffy corporate events. In college, networking is about building genuine relationships that can shape your academic experience, career prospects, and personal growth. The connections you make now can lead to mentorships, job opportunities, collaborations, and lifelong friendships.</p>
+
+            <h2>Why Networking Matters in College</h2>
+            
+            <p>Many students think networking is something you do after graduation, but college is actually the perfect time to start. You're surrounded by diverse, motivated people from different backgrounds, and everyone is in learning mode. Plus, the pressure is lower – you're not competing for the same job (yet), so relationships can develop more naturally.</p>
+
+            <div class="networking-grid">
+                <div class="networking-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Peer Connections</h4>
+                    <p>Your classmates today could be your colleagues, business partners, or industry leaders tomorrow.</p>
+                </div>
+                <div class="networking-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Faculty Relationships</h4>
+                    <p>Professors can provide mentorship, research opportunities, and valuable recommendation letters.</p>
+                </div>
+                <div class="networking-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>Industry Professionals</h4>
+                    <p>Guest speakers, career fair representatives, and alumni can offer real-world insights and opportunities.</p>
+                </div>
+                <div class="networking-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Personal Growth</h4>
+                    <p>Building relationships helps develop communication skills, confidence, and emotional intelligence.</p>
+                </div>
+            </div>
+
+            <h2>Building Relationships with Professors</h2>
+
+            <h3>Office Hours: Your Secret Weapon</h3>
+            <p>Office hours are criminally underutilized. Most students only show up when they're struggling, but smart students use office hours strategically:</p>
+
+            <ul>
+                <li><strong>Come prepared with thoughtful questions:</strong> About course material, career advice, or research opportunities</li>
+                <li><strong>Show genuine interest:</strong> Ask about their research, recent publications, or industry experience</li>
+                <li><strong>Follow up on class discussions:</strong> Reference something interesting from a recent lecture</li>
+                <li><strong>Be consistent:</strong> Regular visits show dedication and help professors remember you</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-clock"></i> Timing Tip</h4>
+                <p>Visit office hours early in the semester when professors have more time and fewer stressed students. This helps you stand out and builds a relationship before you need anything specific.</p>
+            </div>
+
+            <h3>Beyond Office Hours</h3>
+            <ul>
+                <li><strong>Participate in class:</strong> Ask thoughtful questions and contribute to discussions</li>
+                <li><strong>Attend department events:</strong> Many departments host lectures, social events, or networking mixers</li>
+                <li><strong>Consider research opportunities:</strong> Working on research projects creates stronger mentoring relationships</li>
+                <li><strong>Stay in touch after the semester:</strong> Send occasional updates about your academic progress or career plans</li>
+            </ul>
+
+            <h2>Connecting with Classmates</h2>
+
+            <h3>In the Classroom</h3>
+            <p>Your classmates are your most accessible network. Here's how to build meaningful connections:</p>
+
+            <ul>
+                <li><strong>Form study groups:</strong> Academic collaboration naturally builds relationships</li>
+                <li><strong>Exchange contact information early:</strong> Don't wait until the night before an exam</li>
+                <li><strong>Be helpful:</strong> Share notes, explain concepts, offer to review each other's work</li>
+                <li><strong>Engage in group projects:</strong> Be the person others want to work with</li>
+            </ul>
+
+            <h3>Beyond Academics</h3>
+            <ul>
+                <li><strong>Grab coffee together:</strong> Take study breaks to actually get to know each other</li>
+                <li><strong>Attend campus events:</strong> Concerts, sports games, and cultural events are natural bonding opportunities</li>
+                <li><strong>Join clubs related to your major:</strong> Meet people with similar academic interests</li>
+                <li><strong>Participate in intramural sports:</strong> Team activities build strong friendships</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-handshake"></i> Quality Over Quantity</h4>
+                <p>Don't try to befriend everyone. Focus on building genuine relationships with people you actually connect with. A few strong connections are more valuable than dozens of superficial ones.</p>
+            </div>
+
+            <h2>Student Organizations: Your Networking Goldmine</h2>
+
+            <h3>Choose Strategically</h3>
+            <p>Join organizations that align with your interests and goals:</p>
+
+            <ul>
+                <li><strong>Professional organizations:</strong> Business clubs, engineering societies, pre-med groups</li>
+                <li><strong>Academic honor societies:</strong> Phi Beta Kappa, Phi Eta Sigma, major-specific honors</li>
+                <li><strong>Service organizations:</strong> Habitat for Humanity, tutoring programs, community service clubs</li>
+                <li><strong>Special interest groups:</strong> Debate teams, cultural organizations, hobby clubs</li>
+                <li><strong>Greek life:</strong> If it's right for you, can provide extensive alumni networks</li>
+            </ul>
+
+            <h3>Get Involved, Don't Just Join</h3>
+            <p>Simply being a member isn't enough. To build real connections:</p>
+
+            <ul>
+                <li><strong>Volunteer for committees:</strong> Show initiative and work closely with other committed members</li>
+                <li><strong>Run for leadership positions:</strong> Even small roles demonstrate commitment</li>
+                <li><strong>Attend social events:</strong> Informal gatherings often lead to stronger relationships</li>
+                <li><strong>Participate in service projects:</strong> Working together toward a common goal builds bonds</li>
+            </ul>
+
+            <h2>Professional Networking Events</h2>
+
+            <h3>Career Fairs</h3>
+            <p>Career fairs aren't just for seniors. Attend them throughout college to:</p>
+
+            <ul>
+                <li><strong>Learn about different companies and roles:</strong> Research what's actually out there</li>
+                <li><strong>Practice your elevator pitch:</strong> Low-stakes environment to refine your presentation</li>
+                <li><strong>Collect contact information:</strong> Follow up with recruiters via email or LinkedIn</li>
+                <li><strong>Ask about internships:</strong> Many companies recruit interns at these events</li>
+            </ul>
+
+            <h3>Guest Speaker Events</h3>
+            <p>When professionals visit campus:</p>
+
+            <ul>
+                <li><strong>Arrive early:</strong> Chat with speakers before their presentation</li>
+                <li><strong>Ask thoughtful questions:</strong> During Q&A, show you've been paying attention</li>
+                <li><strong>Approach them afterward:</strong> Continue conversations when the formal part ends</li>
+                <li><strong>Send follow-up emails:</strong> Thank them and reference specific points from their talk</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-envelope"></i> Follow-Up Formula</h4>
+                <p>Subject: "Thank you - [Your Name] from [Event Name]"<br>
+                Brief message: Mention specific detail from conversation, express gratitude, include one thoughtful question or comment. Keep it under 100 words.</p>
+            </div>
+
+            <h2>Digital Networking</h2>
+
+            <h3>LinkedIn Best Practices</h3>
+            <p>Create a professional LinkedIn profile early in college:</p>
+
+            <ul>
+                <li><strong>Professional headshot:</strong> Dress appropriately and smile genuinely</li>
+                <li><strong>Compelling headline:</strong> More than just "Student at XYZ University"</li>
+                <li><strong>Detailed summary:</strong> Highlight your interests, goals, and experiences</li>
+                <li><strong>Regular updates:</strong> Share articles, comment on posts, celebrate achievements</li>
+            </ul>
+
+            <h3>Connecting Online</h3>
+            <ul>
+                <li><strong>Personalize connection requests:</strong> Always include a note explaining how you met</li>
+                <li><strong>Engage with connections' content:</strong> Like, comment, and share thoughtfully</li>
+                <li><strong>Share your own content:</strong> Articles you've written, events you've attended, achievements</li>
+                <li><strong>Join relevant groups:</strong> Participate in discussions in your field of interest</li>
+            </ul>
+
+            <h2>Networking for Introverts</h2>
+
+            <p>Networking doesn't require being the most outgoing person in the room. Introverts can be excellent networkers by playing to their strengths:</p>
+
+            <h3>One-on-One Interactions</h3>
+            <ul>
+                <li><strong>Coffee meetings:</strong> More comfortable than large networking events</li>
+                <li><strong>Office hours:</strong> Natural setting for deeper conversations</li>
+                <li><strong>Study partnerships:</strong> Academic collaboration feels less "networky"</li>
+                <li><strong>Email connections:</strong> Thoughtful written communication can be more comfortable</li>
+            </ul>
+
+            <h3>Preparation Strategies</h3>
+            <ul>
+                <li><strong>Research attendees beforehand:</strong> Know who you want to meet and why</li>
+                <li><strong>Prepare conversation starters:</strong> Have a few questions ready about their work or interests</li>
+                <li><strong>Set realistic goals:</strong> Aim to have 2-3 meaningful conversations rather than meeting everyone</li>
+                <li><strong>Take breaks:</strong> Step outside or find quiet spaces to recharge during events</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-heart"></i> Remember</h4>
+                <p>Introverts often excel at listening and asking thoughtful questions – these are networking superpowers! People appreciate when someone is genuinely interested in what they have to say.</p>
+            </div>
+
+            <h2>Networking Etiquette and Common Mistakes</h2>
+
+            <h3>Do's</h3>
+            <ul>
+                <li><strong>Be genuinely interested:</strong> Ask about their work, challenges, and experiences</li>
+                <li><strong>Listen more than you talk:</strong> People remember good listeners</li>
+                <li><strong>Offer value:</strong> Share relevant articles, make introductions, volunteer to help</li>
+                <li><strong>Follow up promptly:</strong> Within 24-48 hours while the conversation is fresh</li>
+                <li><strong>Be patient:</strong> Relationships take time to develop</li>
+            </ul>
+
+            <h3>Don'ts</h3>
+            <ul>
+                <li><strong>Don't immediately ask for favors:</strong> Build the relationship first</li>
+                <li><strong>Don't be pushy:</strong> If someone seems busy or uninterested, respect that</li>
+                <li><strong>Don't monopolize someone's time:</strong> Be aware of social cues</li>
+                <li><strong>Don't only reach out when you need something:</strong> Maintain relationships consistently</li>
+                <li><strong>Don't forget names:</strong> Use memory techniques or write notes to remember people</li>
+            </ul>
+
+            <h2>Maintaining Your Network</h2>
+
+            <h3>Stay in Touch</h3>
+            <p>Building the connection is just the beginning. Maintaining relationships requires ongoing effort:</p>
+
+            <ul>
+                <li><strong>Regular check-ins:</strong> Send updates about your progress every 3-6 months</li>
+                <li><strong>Share relevant information:</strong> Articles, job postings, or opportunities that might interest them</li>
+                <li><strong>Celebrate their successes:</strong> Comment on promotions, publications, or achievements</li>
+                <li><strong>Ask for advice:</strong> People like helping others and feeling valued for their expertise</li>
+            </ul>
+
+            <h3>Give Before You Receive</h3>
+            <p>The best networkers are generous with their time and resources:</p>
+
+            <ul>
+                <li><strong>Make introductions:</strong> Connect people in your network who should know each other</li>
+                <li><strong>Share opportunities:</strong> Forward job postings, event invitations, or volunteer opportunities</li>
+                <li><strong>Offer assistance:</strong> Help with projects, provide feedback, or volunteer your skills</li>
+                <li><strong>Be a connector:</strong> Become known as someone who brings people together</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-gift"></i> The Pay-It-Forward Mentality</h4>
+                <p>Help other students network too. Introduce classmates to professors, share internship opportunities, and invite others to events. What goes around comes around, and you'll build a reputation as someone who lifts others up.</p>
+            </div>
+
+            <h2>Leveraging Your Network</h2>
+
+            <h3>When It's Appropriate to Ask for Help</h3>
+            <p>Once you've built genuine relationships, it's okay to seek assistance:</p>
+
+            <ul>
+                <li><strong>Informational interviews:</strong> Ask about their career path and industry insights</li>
+                <li><strong>Job referrals:</strong> If they work somewhere you're interested in applying</li>
+                <li><strong>Recommendation letters:</strong> From professors or supervisors who know your work well</li>
+                <li><strong>Advice and guidance:</strong> When facing important decisions or challenges</li>
+            </ul>
+
+            <h3>How to Ask Effectively</h3>
+            <ul>
+                <li><strong>Be specific:</strong> Clear requests are easier to fulfill than vague ones</li>
+                <li><strong>Make it easy:</strong> Provide all necessary information and minimize their effort</li>
+                <li><strong>Give them an out:</strong> Let them know it's okay if they can't help</li>
+                <li><strong>Express gratitude:</strong> Always thank them, regardless of the outcome</li>
+            </ul>
+
+            <h2>Special Networking Opportunities</h2>
+
+            <h3>Study Abroad</h3>
+            <p>International experiences create unique networking opportunities:</p>
+            <ul>
+                <li>Connect with local students and professionals</li>
+                <li>Maintain relationships with fellow study abroad participants</li>
+                <li>Stay in touch with host families or local mentors</li>
+                <li>Join international alumni networks</li>
+            </ul>
+
+            <h3>Internships</h3>
+            <p>Internships are networking goldmines:</p>
+            <ul>
+                <li>Build relationships with supervisors and colleagues</li>
+                <li>Connect with other interns from different schools</li>
+                <li>Attend company events and social gatherings</li>
+                <li>Stay in touch even after the internship ends</li>
+            </ul>
+
+            <h3>Alumni Networks</h3>
+            <p>Your school's alumni are often eager to help current students:</p>
+            <ul>
+                <li>Attend alumni events in your area</li>
+                <li>Reach out through your school's alumni directory</li>
+                <li>Join alumni groups on LinkedIn or Facebook</li>
+                <li>Participate in alumni mentorship programs</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+
+            <p>Networking in college isn't about using people or collecting contacts – it's about building genuine relationships that enrich your life and career. The best networking happens naturally when you're genuinely interested in others and willing to give as much as you receive.</p>
+
+            <p>Start early, be authentic, and remember that every person you meet has a story worth hearing. Some connections will lead to immediate opportunities, others might not pay off for years, and some will simply enrich your college experience.</p>
+
+            <p>Most importantly, don't put pressure on yourself to be perfect at networking right away. Like any skill, it improves with practice. The more you put yourself out there and focus on building genuine relationships, the more natural it becomes.</p>
+
+            <p>Your network is one of the most valuable things you'll build in college. Invest in it wisely, nurture it consistently, and watch how it transforms your opportunities and experiences. 🤝</p>
+        </div>
+    </article>
+
+    <section class="back-to-blog">
+        <a href="slayyin-blog.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-connect">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-instagram"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-container">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="slayyin-blog.html">Blog</a></li>
+                        <li><a href="customize.html">Customize</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Blog Categories</h3>
+                    <ul>
+                        <li><a href="slayyin-blog.html#college-life">College Life</a></li>
+                        <li><a href="slayyin-blog.html#fashion">Fashion</a></li>
+                        <li><a href="slayyin-blog.html#networking">Networking</a></li>
+                        <li><a href="slayyin-blog.html#career">Career Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Slayyin. All rights reserved. | <a href="policies.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <div class="coming-soon-overlay" onclick="hideComingSoonMessage()"></div>
+    <div class="coming-soon-message">
+        <h3>Coming Soon!</h3>
+        <p>This feature is currently under development.</p>
+        <p>Stay tuned for exciting updates!</p>
+    </div>
+
+    <style>
+        /* Coming Soon Overlay Styles */
+        .coming-soon-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9998;
+            display: none;
+        }
+
+        .coming-soon-overlay.active {
+            display: block;
+        }
+
+        .coming-soon-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: none;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .coming-soon-message.active {
+            display: block;
+        }
+
+        .coming-soon-message h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .coming-soon-message p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Feature Coming Soon Notification Styles */
+        .feature-coming-soon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .feature-coming-soon.show {
+            transform: translateX(0);
+            opacity: 1;
+            display: block;
+        }
+
+        /* Footer Desktop Layout */
+        .footer-links-container {
+            display: contents;
+        }
+
+        /* Footer Mobile Layout */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* Connect section first (centered) */
+            .footer-connect {
+                width: 100%;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            /* Container for Quick Links and Categories */
+            .footer-links-container {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                gap: 20px;
+                max-width: 400px;
+            }
+
+            /* Quick Links and Categories side by side */
+            .footer-links-container .footer-section {
+                width: 48%;
+                text-align: left;
+            }
+
+            .footer-links-container .footer-section h3 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-links-container .footer-section ul {
+                font-size: 0.9rem;
+            }
+
+            .footer-links-container .footer-section ul li {
+                margin-bottom: 8px;
+            }
+
+            /* Improve social icons for mobile */
+            .footer-connect .social-icons a {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 8px;
+                text-decoration: none;
+                flex-shrink: 0;
+                background: rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .footer-connect .social-icons a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .footer-connect .social-icons a i {
+                font-size: 1.2rem;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+    </style>
+
+    <script src="index.js"></script>
+
+    <!-- Page Loader JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+            
+            // Simulate loading progress
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) {
+                    progress = 90;
+                }
+                progressBar.style.width = progress + '%';
+            }, 100);
+            
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                // Complete the progress bar
+                progressBar.style.width = '100%';
+                
+                // Wait a moment then hide loader
+                setTimeout(() => {
+                    clearInterval(progressInterval);
+                    loader.classList.add('hidden');
+                    
+                    // Remove loader from DOM after transition
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 300);
+            });
+            
+            // Fallback: hide loader after maximum time
+            setTimeout(() => {
+                if (!loader.classList.contains('hidden')) {
+                    clearInterval(progressInterval);
+                    progressBar.style.width = '100%';
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 5000); // 5 seconds maximum
+        });
+    </script>
+
+    <script>
+        // Coming Soon Message Functions
+        function showComingSoonMessage(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            
+            if (overlay && message) {
+                overlay.classList.add('active');
+                message.classList.add('active');
+            }
+        }
+
+        function hideComingSoonMessage() {
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            
+            if (overlay && message) {
+                overlay.classList.remove('active');
+                message.classList.remove('active');
+            }
+        }
+
+        // Mobile Search Toggle Function
+        function toggleMobileSearch() {
+            const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+            mobileSearchContainer.classList.toggle('active');
+
+            // Focus on the search input when opening
+            if (mobileSearchContainer.classList.contains('active')) {
+                document.getElementById('mobileSearchInput').focus();
+            }
+        }
+
+        // Close mobile search when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+            const mobileSearchIcon = document.querySelector('.mobile-search-icon');
+
+            if (mobileSearchContainer && mobileSearchContainer.classList.contains('active')) {
+                if (!mobileSearchContainer.contains(event.target) && 
+                    !mobileSearchIcon.contains(event.target)) {
+                    mobileSearchContainer.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

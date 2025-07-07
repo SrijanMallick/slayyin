@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Freshman Mistakes That Can Ruin Your GPA | Slayyin Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io (2)/favicon-32x32.png">
+    <style>
+        .blog-post-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 120px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-post-hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 25%),
+                              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 25%);
+            z-index: 1;
+        }
+        .blog-post-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-post-hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            color: #ccc;
+        }
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blog-excerpt {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .blog-article {
+            padding: 80px 5%;
+            background: #fff;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .article-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 40px 0 20px;
+            color: #000;
+            border-bottom: 3px solid #000;
+            padding-bottom: 10px;
+        }
+        .article-content h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #000;
+        }
+        .article-content ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        .mistake-box {
+            background: #fff5f5;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .mistake-box h4 {
+            font-family: "Montserrat", sans-serif;
+            margin: 0 0 10px;
+            color: #dc3545;
+            font-weight: 600;
+        }
+        .solution-box {
+            background: #f0f8f0;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .solution-box h4 {
+            font-family: "Montserrat", sans-serif;
+            margin: 0 0 10px;
+            color: #28a745;
+            font-weight: 600;
+        }
+        .tip-box {
+            background: #f8f9fa;
+            border-left: 5px solid #000;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .tip-box h4 {
+            font-family: "Montserrat", sans-serif;
+            margin: 0 0 10px;
+            color: #000;
+            font-weight: 600;
+        }
+        .back-to-blog {
+            text-align: center;
+            padding: 40px 5%;
+            background: #f8f9fa;
+        }
+        .back-btn {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .back-btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            .blog-meta { 
+                flex-direction: row; 
+                gap: 15px; 
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .blog-meta span {
+                gap: 5px;
+            }
+            .blog-post-hero { padding: 100px 5% 60px; }
+            .blog-article { padding: 60px 5%; }
+            .article-content { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img 
+                src="website-logo.png" 
+                alt="Slayyin Logo" 
+                class="loader-logo"
+            />
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="website-logo.png" alt="Slayyin Logo" class="logo" />
+            </a>
+        </div>
+        <div class="header-center">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="Search blog posts..." id="searchInput" />
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="mobile-search-icon" onclick="toggleMobileSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-icon-container" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="wishlist-icon" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="cart-icon" onclick="showComingSoonMessage(event)">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-post-hero">
+        <div class="blog-post-content">
+            <h1>5 Freshman Mistakes That Can Ruin Your GPA</h1>
+            <div class="blog-meta">
+                <span><i class="fas fa-calendar"></i> December 8, 2024</span>
+                <span><i class="fas fa-tag"></i> Mistakes</span>
+                <span><i class="fas fa-clock"></i> 9 min read</span>
+            </div>
+            <p class="blog-excerpt">
+                Avoid these common pitfalls that trip up new college students. 
+                Learn from others' experiences and set yourself up for academic success.
+            </p>
+        </div>
+    </section>
+
+    <article class="blog-article">
+        <div class="article-content">
+            <p>Your freshman year GPA sets the foundation for your entire college career. While you can recover from a rough start, it's much easier to begin strong than to spend years trying to bring up your cumulative GPA. Unfortunately, many well-intentioned freshmen make predictable mistakes that can seriously damage their academic standing.</p>
+
+            <p>The good news? These mistakes are completely avoidable once you know what to watch for. Here are the five most common academic pitfalls and exactly how to avoid them.</p>
+
+            <h2>Mistake #1: Treating College Like High School</h2>
+
+            <div class="mistake-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> The Problem</h4>
+                <p>Many freshmen assume that if they could succeed in high school with minimal effort, college will be the same. They skip classes, wait until the last minute to study, and expect teachers to remind them of deadlines.</p>
+            </div>
+
+            <h3>Why This Backfires</h3>
+            <ul>
+                <li><strong>Faster pace:</strong> College covers material much more quickly than high school</li>
+                <li><strong>Less hand-holding:</strong> Professors won't chase you down about missing assignments</li>
+                <li><strong>Higher expectations:</strong> College assumes you're self-motivated and responsible</li>
+                <li><strong>More complex material:</strong> The difficulty jumps significantly from high school</li>
+            </ul>
+
+            <div class="solution-box">
+                <h4><i class="fas fa-check-circle"></i> The Solution</h4>
+                <p><strong>Adjust your mindset immediately.</strong> Treat college like a full-time job where your "salary" is your grades. Develop new study habits from day one rather than waiting for your first bad grade to be a wake-up call.</p>
+            </div>
+
+            <h3>Action Steps</h3>
+            <ul>
+                <li>Attend every class, even if attendance isn't mandatory</li>
+                <li>Read syllabi carefully and mark all important dates in your calendar</li>
+                <li>Start assignments the day they're assigned, not the day before they're due</li>
+                <li>Study for at least 2-3 hours outside of class for every credit hour</li>
+                <li>Form study groups with serious students</li>
+            </ul>
+
+            <h2>Mistake #2: Poor Time Management and Procrastination</h2>
+
+            <div class="mistake-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> The Problem</h4>
+                <p>Freshmen often underestimate how long assignments take or overestimate how much they can accomplish in a short time. They procrastinate until deadlines pile up, leading to all-nighters and subpar work.</p>
+            </div>
+
+            <h3>The Domino Effect</h3>
+            <p>Poor time management creates a cascade of problems:</p>
+            <ul>
+                <li>Rushing through assignments leads to careless mistakes</li>
+                <li>All-nighters hurt performance on subsequent exams</li>
+                <li>Stress affects mental health and decision-making</li>
+                <li>Missing deadlines can mean automatic zeros</li>
+                <li>No time for professor office hours or help-seeking</li>
+            </ul>
+
+            <div class="solution-box">
+                <h4><i class="fas fa-check-circle"></i> The Solution</h4>
+                <p><strong>Develop systems, not just good intentions.</strong> Use actual tools and methods to manage your time rather than relying on memory or "getting better" at time management.</p>
+            </div>
+
+            <h3>Time Management Tools That Work</h3>
+            <ul>
+                <li><strong>Digital calendar:</strong> Input all syllabi information at the beginning of the semester</li>
+                <li><strong>Weekly planning sessions:</strong> Every Sunday, review the upcoming week</li>
+                <li><strong>Daily priority lists:</strong> Identify your top 3 tasks each morning</li>
+                <li><strong>Time-blocking:</strong> Schedule specific times for studying specific subjects</li>
+                <li><strong>Backward planning:</strong> Start with due dates and work backward to create mini-deadlines</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                <p>Use the "2-minute rule": If something takes less than 2 minutes, do it immediately. This prevents small tasks from piling up and becoming overwhelming.</p>
+            </div>
+
+            <h2>Mistake #3: Choosing Classes Based on Schedule, Not Strategy</h2>
+
+            <div class="mistake-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> The Problem</h4>
+                <p>Freshmen often prioritize sleeping in or having Fridays off over choosing the right professors or balancing their course load. They end up with unnecessarily difficult schedules or professors who don't match their learning style.</p>
+            </div>
+
+            <h3>Hidden Costs of Poor Class Selection</h3>
+            <ul>
+                <li>Taking all your hardest classes in one semester</li>
+                <li>Ending up with professors who have poor teaching reviews</li>
+                <li>Missing prerequisite sequences that delay graduation</li>
+                <li>Overloading on writing-intensive or math-heavy courses</li>
+                <li>Choosing classes that don't fulfill degree requirements efficiently</li>
+            </ul>
+
+            <div class="solution-box">
+                <h4><i class="fas fa-check-circle"></i> The Solution</h4>
+                <p><strong>Research before registering.</strong> Spend time learning about professors, course difficulty, and how classes fit into your degree plan. A little research upfront can save your GPA.</p>
+            </div>
+
+            <h3>Smart Registration Strategy</h3>
+            <ul>
+                <li><strong>Use professor rating sites:</strong> RateMyProfessors, Course Hero, or your school's evaluation system</li>
+                <li><strong>Talk to upperclassmen:</strong> Ask about specific professors and courses</li>
+                <li><strong>Balance your load:</strong> Mix easier and harder classes each semester</li>
+                <li><strong>Meet with academic advisors:</strong> Don't just register online – get professional guidance</li>
+                <li><strong>Have backup options:</strong> Be ready to adjust if your first choices don't work out</li>
+                <li><strong>Consider your personal peak hours:</strong> If you're not a morning person, avoid 8 AM classes</li>
+            </ul>
+
+            <h2>Mistake #4: Not Getting Help Early Enough</h2>
+
+            <div class="mistake-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> The Problem</h4>
+                <p>Many freshmen wait until they're failing before seeking help. They're embarrassed to ask questions, don't know where to find help, or assume they should be able to figure everything out on their own.</p>
+            </div>
+
+            <h3>Why Waiting Hurts</h3>
+            <ul>
+                <li>Small problems become large problems</li>
+                <li>Less time to implement solutions before major exams</li>
+                <li>Increased stress and anxiety</li>
+                <li>Missing foundational concepts affects everything that follows</li>
+                <li>Help resources become overcrowded near exam time</li>
+            </ul>
+
+            <div class="solution-box">
+                <h4><i class="fas fa-check-circle"></i> The Solution</h4>
+                <p><strong>Normalize help-seeking.</strong> Getting help is a sign of intelligence, not weakness. High-achieving students use all available resources – that's partly why they're high-achieving.</p>
+            </div>
+
+            <h3>Help Resources to Use Immediately</h3>
+            <ul>
+                <li><strong>Professor office hours:</strong> Go within the first two weeks, even just to introduce yourself</li>
+                <li><strong>Teaching assistants:</strong> Often more approachable than professors and closer to your age</li>
+                <li><strong>Study groups:</strong> Form them early in the semester, not right before exams</li>
+                <li><strong>Tutoring centers:</strong> Many schools offer free tutoring – use it preventively</li>
+                <li><strong>Writing centers:</strong> Get help with papers before they're due</li>
+                <li><strong>Academic success coaches:</strong> Many schools have staff specifically for this</li>
+                <li><strong>Learning disability services:</strong> If you suspect you might need accommodations</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-clock"></i> Timing Matters</h4>
+                <p>Go to office hours in the first month of the semester. Professors remember students who show early initiative, and you'll build relationships before you desperately need help.</p>
+            </div>
+
+            <h2>Mistake #5: Lifestyle Choices That Sabotage Academic Performance</h2>
+
+            <div class="mistake-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> The Problem</h4>
+                <p>Freshmen often get caught up in the social aspects of college at the expense of basic health habits. Poor sleep, irregular eating, excessive partying, and lack of exercise create a perfect storm for academic failure.</p>
+            </div>
+
+            <h3>How Lifestyle Affects Grades</h3>
+            <ul>
+                <li><strong>Sleep deprivation:</strong> Impairs memory consolidation and cognitive function</li>
+                <li><strong>Poor nutrition:</strong> Affects energy levels and brain function</li>
+                <li><strong>Excessive alcohol:</strong> Interferes with sleep quality and academic priorities</li>
+                <li><strong>Lack of exercise:</strong> Reduces stress management and mental clarity</li>
+                <li><strong>Social pressure:</strong> Can lead to skipping classes or not studying</li>
+            </ul>
+
+            <div class="solution-box">
+                <h4><i class="fas fa-check-circle"></i> The Solution</h4>
+                <p><strong>Treat your body like the foundation of your academic success.</strong> You can't perform well academically if you're not taking care of your basic physical and mental health needs.</p>
+            </div>
+
+            <h3>Academic-Supporting Lifestyle Habits</h3>
+
+            <h4>Sleep</h4>
+            <ul>
+                <li>Aim for 7-9 hours per night</li>
+                <li>Keep a consistent sleep schedule, even on weekends</li>
+                <li>Create a bedtime routine that helps you wind down</li>
+                <li>Limit screen time before bed</li>
+                <li>Use blackout curtains or eye masks in dorms</li>
+            </ul>
+
+            <h4>Nutrition</h4>
+            <ul>
+                <li>Eat regular meals to maintain steady energy</li>
+                <li>Keep healthy snacks in your dorm for studying</li>
+                <li>Stay hydrated throughout the day</li>
+                <li>Limit excessive caffeine, especially late in the day</li>
+                <li>Don't skip breakfast before exams or important classes</li>
+            </ul>
+
+            <h4>Social Balance</h4>
+            <ul>
+                <li>Choose quality time over quantity of social events</li>
+                <li>Find friends who also value academic success</li>
+                <li>Learn to say no to activities that conflict with your priorities</li>
+                <li>Set boundaries around party frequency and intensity</li>
+                <li>Use social activities as rewards after completing work</li>
+            </ul>
+
+            <h2>Recovery Strategies If You've Already Made These Mistakes</h2>
+
+            <p>If you recognize yourself in these mistakes, don't panic. Here's how to course-correct:</p>
+
+            <h3>Immediate Damage Control</h3>
+            <ul>
+                <li><strong>Calculate your current standing:</strong> Know exactly where your grades stand</li>
+                <li><strong>Prioritize strategically:</strong> Focus on classes where you can still make a significant impact</li>
+                <li><strong>Communicate with professors:</strong> Explain your situation and ask about options</li>
+                <li><strong>Use pass/fail options wisely:</strong> If your school allows it and it won't hurt your record</li>
+                <li><strong>Consider course withdrawal:</strong> Sometimes a W is better than an F</li>
+            </ul>
+
+            <h3>Long-term Recovery</h3>
+            <ul>
+                <li><strong>Learn from the experience:</strong> Identify exactly what went wrong and why</li>
+                <li><strong>Implement new systems:</strong> Don't just try harder – work smarter</li>
+                <li><strong>Seek additional support:</strong> Academic counselors, tutoring, therapy if needed</li>
+                <li><strong>Be patient with progress:</strong> GPA recovery takes time, but it's possible</li>
+                <li><strong>Celebrate small wins:</strong> Acknowledge when you're doing things differently</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4><i class="fas fa-heart"></i> Remember</h4>
+                <p>One bad semester doesn't define your entire college career. Many successful students had rough starts but learned from their mistakes and went on to achieve their goals. The key is learning from the experience and making changes going forward.</p>
+            </div>
+
+            <h2>Prevention: Building Good Habits from Day One</h2>
+
+            <h3>Week 1 Checklist</h3>
+            <ul>
+                <li>Read all syllabi and enter important dates in your calendar</li>
+                <li>Locate all help resources on campus</li>
+                <li>Introduce yourself to professors during office hours</li>
+                <li>Set up your study space and organization system</li>
+                <li>Find study partners in each class</li>
+            </ul>
+
+            <h3>Monthly Check-ins</h3>
+            <ul>
+                <li>Review your grades and attendance</li>
+                <li>Assess whether your study strategies are working</li>
+                <li>Adjust your schedule if something isn't working</li>
+                <li>Meet with academic advisors</li>
+                <li>Evaluate your work-life balance</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+
+            <p>The transition to college is challenging for everyone, and making mistakes is part of the learning process. The difference between students who thrive and those who struggle isn't intelligence – it's awareness and adaptability.</p>
+
+            <p>By recognizing these common pitfalls early and implementing preventive strategies, you can avoid the GPA damage that derails many freshmen. Remember, college is a marathon, not a sprint. Building sustainable habits and systems will serve you much better than relying on last-minute cramming or natural ability alone.</p>
+
+            <p>Your freshman year sets the tone for your entire college experience. Invest in getting it right, and you'll thank yourself for years to come. You've got this! 📚</p>
+        </div>
+    </article>
+
+    <section class="back-to-blog">
+        <a href="slayyin-blog.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-connect">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-instagram"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="showComingSoonMessage(event)"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-container">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="slayyin-blog.html">Blog</a></li>
+                        <li><a href="customize.html">Customize</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Blog Categories</h3>
+                    <ul>
+                        <li><a href="slayyin-blog.html#college-life">College Life</a></li>
+                        <li><a href="slayyin-blog.html#fashion">Fashion</a></li>
+                        <li><a href="slayyin-blog.html#networking">Networking</a></li>
+                        <li><a href="slayyin-blog.html#career">Career Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Slayyin. All rights reserved. | <a href="policies.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <div class="coming-soon-overlay" onclick="hideComingSoonMessage()"></div>
+    <div class="coming-soon-message">
+        <h3>Coming Soon!</h3>
+        <p>This feature is currently under development.</p>
+        <p>Stay tuned for exciting updates!</p>
+    </div>
+
+    <style>
+        /* Coming Soon Overlay Styles */
+        .coming-soon-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9998;
+            display: none;
+        }
+
+        .coming-soon-overlay.active {
+            display: block;
+        }
+
+        .coming-soon-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: none;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .coming-soon-message.active {
+            display: block;
+        }
+
+        .coming-soon-message h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .coming-soon-message p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Feature Coming Soon Notification Styles */
+        .feature-coming-soon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .feature-coming-soon.show {
+            transform: translateX(0);
+            opacity: 1;
+            display: block;
+        }
+
+        /* Footer Desktop Layout */
+        .footer-links-container {
+            display: contents;
+        }
+
+        /* Footer Mobile Layout */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* Connect section first (centered) */
+            .footer-connect {
+                width: 100%;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            /* Container for Quick Links and Categories */
+            .footer-links-container {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                gap: 20px;
+                max-width: 400px;
+            }
+
+            /* Quick Links and Categories side by side */
+            .footer-links-container .footer-section {
+                width: 48%;
+                text-align: left;
+            }
+
+            .footer-links-container .footer-section h3 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .footer-links-container .footer-section ul {
+                font-size: 0.9rem;
+            }
+
+            .footer-links-container .footer-section ul li {
+                margin-bottom: 8px;
+            }
+
+            /* Improve social icons for mobile */
+            .footer-connect .social-icons a {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 8px;
+                text-decoration: none;
+                flex-shrink: 0;
+                background: rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .footer-connect .social-icons a:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .footer-connect .social-icons a i {
+                font-size: 1.2rem;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+    </style>
+
+    <script src="index.js"></script>
+
+    <!-- Page Loader JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+            
+            // Simulate loading progress
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) {
+                    progress = 90;
+                }
+                progressBar.style.width = progress + '%';
+            }, 100);
+            
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                // Complete the progress bar
+                progressBar.style.width = '100%';
+                
+                // Wait a moment then hide loader
+                setTimeout(() => {
+                    clearInterval(progressInterval);
+                    loader.classList.add('hidden');
+                    
+                    // Remove loader from DOM after transition
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 300);
+            });
+            
+            // Fallback: hide loader after maximum time
+            setTimeout(() => {
+                if (!loader.classList.contains('hidden')) {
+                    clearInterval(progressInterval);
+                    progressBar.style.width = '100%';
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 5000); // 5 seconds maximum
+        });
+    </script>
+
+    <script>
+        // Coming Soon Message Functions
+        function showComingSoonMessage(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            
+            if (overlay && message) {
+                overlay.classList.add('active');
+                message.classList.add('active');
+            }
+        }
+
+        function hideComingSoonMessage() {
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            
+            if (overlay && message) {
+                overlay.classList.remove('active');
+                message.classList.remove('active');
+            }
+        }
+
+        // Mobile Search Toggle Function
+        function toggleMobileSearch() {
+            const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+            mobileSearchContainer.classList.toggle('active');
+
+            // Focus on the search input when opening
+            if (mobileSearchContainer.classList.contains('active')) {
+                document.getElementById('mobileSearchInput').focus();
+            }
+        }
+
+        // Close mobile search when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+            const mobileSearchIcon = document.querySelector('.mobile-search-icon');
+
+            if (mobileSearchContainer && mobileSearchContainer.classList.contains('active')) {
+                if (!mobileSearchContainer.contains(event.target) && 
+                    !mobileSearchIcon.contains(event.target)) {
+                    mobileSearchContainer.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
