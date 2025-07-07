@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Sciences Notes - All Branches | Slayyin</title>
+    <meta name="description" content="Comprehensive handwritten notes for all science branches including Physics, Chemistry, Biology, Mathematics, Computer Science, Environmental Science, and more. Quality study material for B.Sc, M.Sc students.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page Loader Styles */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .loader-logo {
+            width: 120px;
+            height: auto;
+            animation: logoFloat 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoFloat {
+            0% {
+                transform: translateY(0px);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            color: #000;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            animation: textPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes textPulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .loader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #000, #ffcc00);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+            animation: progressGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes progressGlow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+            }
+        }
+
+        /* Mobile responsive loader */
+        @media (max-width: 768px) {
+            .loader-logo {
+                width: 80px;
+            }
+            
+            .loader-spinner {
+                width: 40px;
+                height: 40px;
+                border-width: 3px;
+            }
+            
+            .loader-text {
+                font-size: 1rem;
+            }
+            
+            .loader-progress {
+                width: 150px;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .loader-content {
+                gap: 20px;
+            }
+            
+            .loader-logo {
+                width: 60px;
+            }
+            
+            .loader-spinner {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .loader-text {
+                font-size: 0.9rem;
+            }
+            
+            .loader-progress {
+                width: 120px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            25% { width: 30%; }
+            50% { width: 60%; }
+            75% { width: 85%; }
+            100% { width: 100%; }
+        }
+
+        /* Header - White background with black logo (non-sticky) */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-center {
+            text-align: center;
+        }
+
+        .logo {
+            height: 45px;
+            width: auto;
+            filter: brightness(0) invert(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3.5rem;
+            color: #fff;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(76, 175, 80, 0.15);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        /* Branches Section */
+        .branches {
+            padding: 100px 0;
+            background: #000;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .branch-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.1), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .branch-card:hover::before {
+            left: 100%;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+            border-color: #4CAF50;
+            background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 100%);
+        }
+
+        .branch-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .branch-card:hover .branch-icon {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.6);
+        }
+
+        .branch-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .branch-description {
+            color: #ccc;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .specializations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .specialization-tag {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .branch-card:hover .specialization-tag {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+        }
+
+        .subjects-count {
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #111 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: #fff;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 50px 0 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .branches-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .branch-card {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 0;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .back-btn {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .branch-card {
+                padding: 25px 20px;
+            }
+            
+            .branch-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .branch-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .cta-section {
+                padding: 60px 0;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .hero h1 {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+                padding: 0 15px;
+            }
+
+            .branches-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .branch-card {
+                padding: 20px 15px;
+            }
+            
+            .branch-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .branch-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+            
+            .branch-description {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                padding: 20px 15px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-label {
+                font-size: 1rem;
+            }
+
+            .specializations {
+                gap: 6px;
+            }
+
+            .specialization-tag {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+            
+            .cta-section {
+                padding: 50px 0;
+            }
+            
+            .cta-content {
+                padding: 0 20px;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .cta-content p {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+            
+            .cta-btn {
+                font-size: 0.9rem;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .branch-card {
+                padding: 18px 12px;
+            }
+            
+            .specialization-tag {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img src="website-logo.png" alt="Slayyin Logo" class="loader-logo" />
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+      <div class="header-center">
+        <a href="index.html">
+          <img src="website-logo.png" alt="Slayyin Logo" class="logo" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h1>Pure Sciences Notes</h1>
+                <div class="hero-subtitle">All Science Branches • All Specializations</div>
+                <p>Comprehensive handwritten notes covering all major science disciplines and specializations. From Physics to Biology, Chemistry to Mathematics - we've got quality study material crafted by top science students and researchers.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Branches Section -->
+    <section class="branches">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Science Branches</h2>
+                <p class="section-subtitle">Explore comprehensive notes for all major science disciplines and research areas</p>
+            </div>
+            
+            <div class="branches-grid">
+                <!-- Physics -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Physics</h3>
+                    <p class="branch-description">Classical and modern physics including mechanics, thermodynamics, quantum physics, and relativity</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Mechanics</span>
+                        <span class="specialization-tag">Thermodynamics</span>
+                        <span class="specialization-tag">Electromagnetism</span>
+                        <span class="specialization-tag">Quantum Physics</span>
+                        <span class="specialization-tag">Optics</span>
+                        <span class="specialization-tag">Nuclear Physics</span>
+                        <span class="specialization-tag">Astrophysics</span>
+                    </div>
+                    <div class="subjects-count">20+ Core Subjects Available</div>
+                </div>
+
+                <!-- Chemistry -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Chemistry</h3>
+                    <p class="branch-description">Organic, inorganic, and physical chemistry with analytical and applied chemistry</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Organic Chemistry</span>
+                        <span class="specialization-tag">Inorganic Chemistry</span>
+                        <span class="specialization-tag">Physical Chemistry</span>
+                        <span class="specialization-tag">Analytical Chemistry</span>
+                        <span class="specialization-tag">Biochemistry</span>
+                        <span class="specialization-tag">Polymer Chemistry</span>
+                    </div>
+                    <div class="subjects-count">18+ Core Subjects Available</div>
+                </div>
+
+                <!-- Biology -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Biology</h3>
+                    <p class="branch-description">Life sciences covering botany, zoology, genetics, and molecular biology</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Cell Biology</span>
+                        <span class="specialization-tag">Genetics</span>
+                        <span class="specialization-tag">Molecular Biology</span>
+                        <span class="specialization-tag">Ecology</span>
+                        <span class="specialization-tag">Evolution</span>
+                        <span class="specialization-tag">Biotechnology</span>
+                    </div>
+                    <div class="subjects-count">22+ Core Subjects Available</div>
+                </div>
+
+                <!-- Mathematics -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <p class="branch-description">Pure and applied mathematics including calculus, algebra, statistics, and computational methods</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Calculus</span>
+                        <span class="specialization-tag">Linear Algebra</span>
+                        <span class="specialization-tag">Statistics</span>
+                        <span class="specialization-tag">Differential Equations</span>
+                        <span class="specialization-tag">Number Theory</span>
+                        <span class="specialization-tag">Topology</span>
+                    </div>
+                    <div class="subjects-count">16+ Core Subjects Available</div>
+                </div>
+
+                <!-- Computer Science -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Computer Science</h3>
+                    <p class="branch-description">Programming, algorithms, data structures, and computational theory</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Programming</span>
+                        <span class="specialization-tag">Data Structures</span>
+                        <span class="specialization-tag">Algorithms</span>
+                        <span class="specialization-tag">Database Systems</span>
+                        <span class="specialization-tag">Machine Learning</span>
+                        <span class="specialization-tag">Software Engineering</span>
+                    </div>
+                    <div class="subjects-count">15+ Core Subjects Available</div>
+                </div>
+
+                <!-- Botany -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Botany</h3>
+                    <p class="branch-description">Plant biology including morphology, physiology, taxonomy, and plant pathology</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Plant Morphology</span>
+                        <span class="specialization-tag">Plant Physiology</span>
+                        <span class="specialization-tag">Plant Taxonomy</span>
+                        <span class="specialization-tag">Plant Pathology</span>
+                        <span class="specialization-tag">Plant Ecology</span>
+                        <span class="specialization-tag">Ethnobotany</span>
+                    </div>
+                    <div class="subjects-count">14+ Core Subjects Available</div>
+                </div>
+
+                <!-- Zoology -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3>Zoology</h3>
+                    <p class="branch-description">Animal biology including anatomy, physiology, behavior, and evolution</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Animal Anatomy</span>
+                        <span class="specialization-tag">Animal Physiology</span>
+                        <span class="specialization-tag">Animal Behavior</span>
+                        <span class="specialization-tag">Invertebrate Zoology</span>
+                        <span class="specialization-tag">Vertebrate Zoology</span>
+                        <span class="specialization-tag">Animal Ecology</span>
+                    </div>
+                    <div class="subjects-count">16+ Core Subjects Available</div>
+                </div>
+
+                <!-- Geology -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Geology</h3>
+                    <p class="branch-description">Earth sciences including mineralogy, petrology, paleontology, and environmental geology</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Mineralogy</span>
+                        <span class="specialization-tag">Petrology</span>
+                        <span class="specialization-tag">Paleontology</span>
+                        <span class="specialization-tag">Stratigraphy</span>
+                        <span class="specialization-tag">Hydrogeology</span>
+                        <span class="specialization-tag">Economic Geology</span>
+                    </div>
+                    <div class="subjects-count">12+ Core Subjects Available</div>
+                </div>
+
+                <!-- Environmental Science -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Environmental Science</h3>
+                    <p class="branch-description">Environmental studies including pollution control, conservation, and sustainable development</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Environmental Chemistry</span>
+                        <span class="specialization-tag">Pollution Control</span>
+                        <span class="specialization-tag">Conservation Biology</span>
+                        <span class="specialization-tag">Climate Science</span>
+                        <span class="specialization-tag">Sustainability</span>
+                        <span class="specialization-tag">Environmental Policy</span>
+                    </div>
+                    <div class="subjects-count">13+ Core Subjects Available</div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Statistics</h3>
+                    <p class="branch-description">Statistical methods, data analysis, probability theory, and applied statistics</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Descriptive Statistics</span>
+                        <span class="specialization-tag">Inferential Statistics</span>
+                        <span class="specialization-tag">Probability Theory</span>
+                        <span class="specialization-tag">Regression Analysis</span>
+                        <span class="specialization-tag">Biostatistics</span>
+                        <span class="specialization-tag">Data Mining</span>
+                    </div>
+                    <div class="subjects-count">11+ Core Subjects Available</div>
+                </div>
+
+                <!-- Microbiology -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Microbiology</h3>
+                    <p class="branch-description">Study of microorganisms including bacteria, viruses, fungi, and their applications</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Bacteriology</span>
+                        <span class="specialization-tag">Virology</span>
+                        <span class="specialization-tag">Mycology</span>
+                        <span class="specialization-tag">Immunology</span>
+                        <span class="specialization-tag">Medical Microbiology</span>
+                        <span class="specialization-tag">Industrial Microbiology</span>
+                    </div>
+                    <div class="subjects-count">10+ Core Subjects Available</div>
+                </div>
+
+                <!-- Food Science -->
+                <div class="branch-card">
+                    <div class="branch-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Food Science & Technology</h3>
+                    <p class="branch-description">Food processing, nutrition, food safety, and quality control in food industry</p>
+                    <div class="specializations">
+                        <span class="specialization-tag">Food Chemistry</span>
+                        <span class="specialization-tag">Food Microbiology</span>
+                        <span class="specialization-tag">Food Processing</span>
+                        <span class="specialization-tag">Nutrition</span>
+                        <span class="specialization-tag">Food Safety</span>
+                        <span class="specialization-tag">Quality Control</span>
+                    </div>
+                    <div class="subjects-count">12+ Core Subjects Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Excel in Sciences?</h2>
+                <p>Get access to comprehensive handwritten notes for all science branches and boost your academic performance in scientific research and studies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Slayyin. All rights reserved. | Quality scientific education for every student.</p>
+        </div>
+    </footer>
+
+    <!-- Coming Soon Overlay -->
+    <div class="coming-soon-overlay" onclick="hideComingSoonMessage()"></div>
+    <div class="coming-soon-message">
+        <h3>🔬 Coming Soon!</h3>
+        <p>We're working hard to bring you the best handwritten notes for Science Studies. Stay tuned for updates!</p>
+    </div>
+
+    <style>
+        /* Coming Soon Styles */
+        .coming-soon-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9998;
+            display: none;
+        }
+
+        .coming-soon-overlay.active {
+            display: block;
+        }
+
+        .coming-soon-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 9999;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: none;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .coming-soon-message.active {
+            display: block;
+        }
+
+        .coming-soon-message h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .coming-soon-message p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        // Page Loader JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const progressBar = document.getElementById('progressBar');
+            
+            // Simulate loading progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                    }, 300);
+                }
+            }, 100);
+
+            // Fallback timeout
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('pageLoader');
+            // Wait a moment then hide loader
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                // Remove loader from DOM after transition
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+
+        // Fallback: hide loader after maximum time
+        setTimeout(() => {
+            const loader = document.getElementById('pageLoader');
+            if (!loader.classList.contains('hidden')) {
+                clearInterval(interval);
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }
+        }, 8000);
+
+        // Coming Soon functionality
+        function showComingSoonMessage(event) {
+            event.preventDefault();
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            overlay.classList.add('active');
+            message.classList.add('active');
+        }
+
+        function hideComingSoonMessage() {
+            const overlay = document.querySelector('.coming-soon-overlay');
+            const message = document.querySelector('.coming-soon-message');
+            overlay.classList.remove('active');
+            message.classList.remove('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
