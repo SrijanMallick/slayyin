@@ -2309,6 +2309,354 @@
         }
       }
 
+      /* Student Marketplace Teaser Section */
+      .student-marketplace-teaser {
+        padding: 120px 5%;
+        background: #000;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Space Background Elements */
+      .student-marketplace-teaser::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+          radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+          radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+        background-size: 300px 300px, 250px 250px, 280px 280px, 320px 320px;
+        animation: starField 80s linear infinite;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      @keyframes starField {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(-50px) rotate(2deg); }
+      }
+
+      /* Shooting Stars - Disabled */
+      .student-marketplace-teaser::after {
+        display: none;
+      }
+
+      /* Floating Space Particles */
+      .space-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .space-particle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0;
+        animation: floatSpace 12s infinite ease-in-out;
+      }
+
+      .space-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+      .space-particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+      .space-particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+      .space-particle:nth-child(4) { left: 40%; animation-delay: 1s; }
+      .space-particle:nth-child(5) { left: 50%; animation-delay: 3s; }
+      .space-particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+      .space-particle:nth-child(7) { left: 70%; animation-delay: 1.5s; }
+      .space-particle:nth-child(8) { left: 80%; animation-delay: 3.5s; }
+      .space-particle:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+
+      @keyframes floatSpace {
+        0%, 100% {
+          transform: translateY(100vh) scale(0) rotate(0deg);
+          opacity: 0;
+        }
+        5% {
+          transform: translateY(95vh) scale(1) rotate(45deg);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translateY(50vh) scale(1.2) rotate(180deg);
+          opacity: 1;
+        }
+        95% {
+          transform: translateY(5vh) scale(0.8) rotate(315deg);
+          opacity: 0.2;
+        }
+      }
+
+
+
+      .marketplace-container {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .marketplace-content h2 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        color: #fff;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        animation: titleGlow 3s ease-in-out infinite alternate;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease-out 0.5s forwards, titleGlow 3s ease-in-out infinite alternate 1.5s;
+      }
+
+      @keyframes titleGlow {
+        0% {
+          text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        100% {
+          text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 255, 255, 0.6);
+        }
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .marketplace-subtitle {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        color: #cccccc;
+        margin-bottom: 40px;
+        font-weight: 300;
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease-out 0.8s forwards;
+      }
+
+      .marketplace-description {
+        margin-bottom: 50px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease-out 1.1s forwards;
+      }
+
+      .marketplace-description p {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        color: #b8b8b8;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .highlight-text {
+        color: #e8e8e8 !important;
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(0.95rem, 2.3vw, 1.1rem) !important;
+        margin-top: 30px !important;
+        animation: textShimmer 4s ease-in-out infinite;
+      }
+
+      @keyframes textShimmer {
+        0%, 100% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 1;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .coming-soon-badge {
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.08) 100%
+        );
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        padding: 15px 40px;
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+        animation: fadeInScale 1s ease-out 1.4s forwards, badgePulse 4s ease-in-out infinite 2.4s;
+        overflow: hidden;
+      }
+
+      .coming-soon-badge::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shimmerBadge 3s infinite;
+      }
+
+      @keyframes fadeInScale {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes badgePulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
+                      0 0 20px rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      @keyframes shimmerBadge {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .badge-text {
+        color: #fff;
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Responsive Design for Student Marketplace */
+      @media (max-width: 768px) {
+        .student-marketplace-teaser {
+          padding: 80px 5%;
+          min-height: 60vh;
+        }
+
+        .student-marketplace-teaser::before {
+          background-size: 200px 200px, 180px 180px, 190px 190px, 220px 220px;
+        }
+
+        .space-particle {
+          width: 2px;
+          height: 2px;
+        }
+
+        .marketplace-content h2 {
+          margin-bottom: 15px;
+        }
+
+        .marketplace-subtitle {
+          margin-bottom: 30px;
+        }
+
+        .marketplace-description {
+          margin-bottom: 40px;
+        }
+
+        .marketplace-description p {
+          margin-bottom: 20px;
+        }
+
+        .highlight-text {
+          margin-top: 20px !important;
+        }
+
+        .coming-soon-badge {
+          padding: 12px 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .student-marketplace-teaser {
+          padding: 60px 3%;
+          min-height: 50vh;
+        }
+
+        .student-marketplace-teaser::before {
+          background-size: 150px 150px, 130px 130px, 140px 140px, 160px 160px;
+        }
+
+
+
+        .space-particle {
+          width: 1.5px;
+          height: 1.5px;
+        }
+
+        .marketplace-description p {
+          margin-bottom: 15px;
+        }
+
+        .highlight-text {
+          margin-top: 15px !important;
+        }
+
+        .coming-soon-badge {
+          padding: 10px 25px;
+        }
+
+        .badge-text {
+          letter-spacing: 1px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .student-marketplace-teaser {
+          padding: 50px 2%;
+          min-height: 45vh;
+        }
+
+        .space-particle {
+          width: 1px;
+          height: 1px;
+        }
+
+        .coming-soon-badge {
+          padding: 8px 20px;
+        }
+
+        .badge-text {
+          letter-spacing: 0.5px;
+        }
+      }
+
 
     </style>
   </head>
@@ -2906,6 +3254,43 @@
       </div>
     </section>
 
+    <section class="student-marketplace-teaser" id="student-marketplace">
+      <!-- Space Particles -->
+      <div class="space-particles">
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+        <div class="space-particle"></div>
+      </div>
+      
+
+      
+      <div class="marketplace-container">
+        <div class="marketplace-content">
+          <h2>Turn Your Talent Into Income</h2>
+          <p class="marketplace-subtitle">Your skills deserve recognition and rewards</p>
+          <div class="marketplace-description">
+            <p>
+              Soon, you'll be able to showcase your creativity and earn money right here on Slayyin. 
+              Whether you're an artist, designer, freelancer, or have unique products to sell - 
+              we're building a platform where students can monetize their talents.
+            </p>
+            <p class="highlight-text">
+              Set up your own storefront • Sell original artwork • Offer freelance services • Connect with buyers
+            </p>
+          </div>
+          <div class="coming-soon-badge">
+            <span class="badge-text">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="why-choose-us">
       <h2>Why Choose Us?</h2>
       <div class="usp-container">
@@ -3201,18 +3586,20 @@
         </button>
       </div>
       <div class="sidebar-content">
-        <h3>Full drop coming soon!</h3>
-        <p>Congrats, You're early!</p>
+        <h3>Full Platform Experience in Development</h3>
+        <p>Thank you for your interest! You've accessed a feature that's part of our upcoming platform enhancement.</p>
         <p>
-          We've already coded the full experience - from sign-up to checkout - all ready to roll.
+          <strong>Currently available:</strong> Browse our complete catalog and place orders seamlessly through WhatsApp for personalized service and immediate support.
         </p>
         <p>
-          For now, we're keeping it simple while accepting orders through WhatsApp to offer personal support and ensure everything runs smooth during the initial days.
+          <strong>Coming soon:</strong> Full shopping cart, wishlist functionality, user accounts, and streamlined checkout experience.
         </p>
-        <p>You're not just a customer - you're part of our Day 1 crew.</p>
-        <p>Thanks for being awesome! 🚀</p>
+        <p>
+          We're launching these features gradually to ensure the best possible experience for our customers. Your feedback during this phase helps us build something truly exceptional.
+        </p>
+        <p>Ready to explore? Use the "Buy Now" buttons for instant WhatsApp ordering! 📱</p>
         <button class="sidebar-button" onclick="closeComingSoonSidebar()">
-          Continue Slayyin
+          Continue Shopping
         </button>
       </div>
     </div>
@@ -3950,6 +4337,7 @@
       // PWA Install prompt handler
       let deferredPrompt;
       let installPromptAvailable = false;
+      let serviceWorkerReady = false;
 
       window.addEventListener('beforeinstallprompt', (e) => {
         console.log('🔧 beforeinstallprompt event fired!');
@@ -3961,11 +4349,11 @@
         deferredPrompt = e;
         installPromptAvailable = true;
         
-        // Show the install button and make it more prominent on mobile
+        // Show the install button and make it more prominent
         const installButton = document.querySelector('.download-icon');
         if (installButton) {
           installButton.style.display = 'flex';
-          console.log('🔧 Install button shown');
+          console.log('🔧 Install button shown - PWA ready');
           
           // Add a subtle animation to indicate installation is available
           installButton.style.animation = 'pulse 2s infinite';
@@ -3976,15 +4364,81 @@
             style.id = 'pulse-animation';
             style.textContent = `
               @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-                100% { transform: scale(1); }
+                0% { 
+                  transform: scale(1); 
+                }
+                50% { 
+                  transform: scale(1.05); 
+                }
+                100% { 
+                  transform: scale(1); 
+                }
               }
             `;
             document.head.appendChild(style);
           }
+          
+          // Show a helpful tooltip on mobile
+          if (window.innerWidth <= 768) {
+            showInstallTooltip();
+          }
         }
       });
+
+      // Listen for service worker messages
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data && event.data.type === 'SW_ACTIVATED') {
+            console.log('🔧 Service worker activated:', event.data.message);
+            serviceWorkerReady = true;
+            
+            // Trigger install prompt check after a delay
+            setTimeout(() => {
+              if (!deferredPrompt && !isAppInstalled()) {
+                console.log('🔧 Manually triggering install criteria check');
+                checkInstallCriteria();
+              }
+            }, 2000);
+          }
+        });
+      }
+
+      // Function to show install tooltip on mobile
+      function showInstallTooltip() {
+        const tooltip = document.createElement('div');
+        tooltip.style.cssText = `
+          position: fixed;
+          top: 70px;
+          right: 10px;
+          background: #4CAF50;
+          color: white;
+          padding: 8px 12px;
+          border-radius: 8px;
+          font-size: 12px;
+          z-index: 1000;
+          animation: fadeInOut 4s ease-in-out;
+          pointer-events: none;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        `;
+        tooltip.textContent = 'Tap to install app!';
+        document.body.appendChild(tooltip);
+        
+        setTimeout(() => {
+          if (tooltip.parentNode) {
+            tooltip.parentNode.removeChild(tooltip);
+          }
+        }, 4000);
+        
+        // Add animation
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(-10px); }
+            10%, 90% { opacity: 1; transform: translateY(0); }
+          }
+        `;
+        document.head.appendChild(style);
+      }
 
       // Debug: Check if PWA criteria are met and setup mobile-specific handling
       setTimeout(() => {
@@ -4027,6 +4481,28 @@
         }
       }, 3000);
 
+      // Check if app is installed
+      function isAppInstalled() {
+        return window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
+      }
+
+      // Enhanced install criteria check
+      function checkInstallCriteria() {
+        const requirements = {
+          serviceWorker: 'serviceWorker' in navigator,
+          manifest: !!document.querySelector('link[rel="manifest"]'),
+          https: location.protocol === 'https:' || location.hostname === 'localhost',
+          serviceWorkerReady: serviceWorkerReady
+        };
+        
+        console.log('🔧 PWA Requirements Check:', requirements);
+        
+        const allMet = Object.values(requirements).every(req => req === true);
+        console.log('🔧 All PWA requirements met:', allMet);
+        
+        return allMet;
+      }
+
       // Main add to home screen function
       function addToHomeScreen() {
         const userAgent = navigator.userAgent.toLowerCase();
@@ -4034,6 +4510,7 @@
         const isAndroid = /android/.test(userAgent);
         const isSafari = /safari/.test(userAgent) && !/chrome/.test(userAgent);
         const isChrome = /chrome/i.test(userAgent);
+        const isEdge = /edge/i.test(userAgent);
         const isMobile = isIOS || isAndroid;
         
         console.log('🔧 Add to Home Screen clicked');
@@ -4042,21 +4519,44 @@
         console.log('🔧 Is mobile:', isMobile);
         
         // Check if PWA is already installed
-        if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+        if (isAppInstalled()) {
           showNotification('App is already installed!');
           return;
+        }
+        
+        // For mobile devices, show immediate visual feedback
+        if (isMobile) {
+          const installButton = document.querySelector('.download-icon');
+          if (installButton) {
+            installButton.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+              installButton.style.transform = 'scale(1)';
+            }, 150);
+          }
         }
         
         // Try PWA install prompt first (works on Chrome mobile and desktop)
         if (deferredPrompt) {
           console.log('🔧 Showing PWA install prompt');
+          
+          // Show loading state for mobile
+          if (isMobile) {
+            showNotification('Preparing installation...', 1000);
+          }
+          
           deferredPrompt.prompt();
           deferredPrompt.userChoice.then((choiceResult) => {
             console.log('🔧 User choice:', choiceResult.outcome);
             if (choiceResult.outcome === 'accepted') {
-              showNotification('🎉 App installed successfully!');
+              showNotification('🎉 App installing... Please wait', 3000);
             } else {
-              showNotification('Installation cancelled');
+              showNotification('Installation cancelled. Try the browser menu!', 4000);
+              if (isMobile) {
+                // Show fallback instructions after a brief delay
+                setTimeout(() => {
+                  fallbackInstallInstructions();
+                }, 1000);
+              }
             }
             deferredPrompt = null;
           }).catch((error) => {
@@ -4066,30 +4566,105 @@
           return;
         }
         
-        // If no prompt available, try alternative methods for mobile
+        // Enhanced mobile handling
         if (isMobile) {
-          // Wait a bit and try to trigger the prompt
+          console.log('🔧 Mobile device detected, checking for delayed prompt');
+          
+          // Try to manually trigger beforeinstallprompt for some browsers
+          const event = new Event('beforeinstallprompt');
+          window.dispatchEvent(event);
+          
+          // Wait a moment for potential delayed prompt
           setTimeout(() => {
             if (deferredPrompt) {
               console.log('🔧 Delayed prompt available, showing now');
               deferredPrompt.prompt();
               deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
-                  showNotification('🎉 App installed successfully!');
+                  showNotification('🎉 App installing... Please wait', 3000);
                 } else {
                   showNotification('Installation cancelled');
                 }
                 deferredPrompt = null;
               });
-          return;
-        }
-        
-            // Still no prompt available, provide instructions
-            fallbackInstallInstructions();
-          }, 500);
+              return;
+            }
+            
+            // Still no prompt available, provide enhanced mobile instructions
+            if (isAndroid && isChrome) {
+              showEnhancedMobileInstructions();
+            } else {
+              fallbackInstallInstructions();
+            }
+          }, 300);
         } else {
           fallbackInstallInstructions();
         }
+      }
+
+      // Enhanced mobile installation instructions
+      function showEnhancedMobileInstructions() {
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.9);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        `;
+        
+        const content = document.createElement('div');
+        content.style.cssText = `
+          background: white;
+          border-radius: 15px;
+          padding: 25px;
+          max-width: 320px;
+          text-align: center;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        `;
+        
+        content.innerHTML = `
+          <h3 style="margin: 0 0 15px 0; color: #333;">Install Slayyin App</h3>
+          <p style="margin: 0 0 20px 0; color: #666; line-height: 1.4;">
+            Tap the <strong>menu button (⋮)</strong> in your browser, then select <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong>
+          </p>
+          <div style="display: flex; gap: 10px;">
+            <button id="tryAgain" style="flex: 1; padding: 10px; background: #4CAF50; color: white; border: none; border-radius: 8px; font-weight: bold;">Try Again</button>
+            <button id="closeModal" style="flex: 1; padding: 10px; background: #ddd; color: #333; border: none; border-radius: 8px;">Close</button>
+          </div>
+        `;
+        
+        modal.appendChild(content);
+        document.body.appendChild(modal);
+        
+        // Event listeners
+        document.getElementById('closeModal').onclick = () => {
+          document.body.removeChild(modal);
+        };
+        
+        document.getElementById('tryAgain').onclick = () => {
+          document.body.removeChild(modal);
+          setTimeout(addToHomeScreen, 500);
+        };
+        
+        modal.onclick = (e) => {
+          if (e.target === modal) {
+            document.body.removeChild(modal);
+          }
+        };
+        
+        // Auto close after 10 seconds
+        setTimeout(() => {
+          if (modal.parentNode) {
+            document.body.removeChild(modal);
+          }
+        }, 10000);
       }
       
       // Fallback instructions when PWA prompt is not available
@@ -4203,41 +4778,104 @@
       // Make it available globally for debugging
       window.checkPWAStatus = checkPWAStatus;
 
-      // Register service worker
+      // Enhanced service worker registration
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          console.log('Attempting to register service worker...');
+          console.log('🔧 Attempting to register service worker...');
           navigator.serviceWorker.register('./service-worker.js')
             .then(function(registration) {
               console.log('✅ ServiceWorker registration successful!');
-              console.log('Scope:', registration.scope);
-              console.log('Registration:', registration);
+              console.log('🔧 Scope:', registration.scope);
+              console.log('🔧 Registration:', registration);
               
-              // Check if there's an active service worker
-              if (registration.active) {
-                console.log('Service worker is active');
-              } else {
-                console.log('Service worker is not active yet');
+              // Handle different service worker states
+              if (registration.installing) {
+                console.log('🔧 Service worker installing...');
+              } else if (registration.waiting) {
+                console.log('🔧 Service worker waiting...');
+                // Send message to activate
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+              } else if (registration.active) {
+                console.log('🔧 Service worker is active');
+                serviceWorkerReady = true;
               }
+              
+              // Listen for updates
+              registration.addEventListener('updatefound', () => {
+                console.log('🔧 Service worker update found');
+                const newWorker = registration.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'activated') {
+                    console.log('🔧 New service worker activated');
+                    serviceWorkerReady = true;
+                  }
+                });
+              });
               
               // Force update check
               registration.update();
+              
+              // Check PWA criteria after service worker registration
+              setTimeout(() => {
+                checkInstallCriteria();
+                if (checkInstallCriteria() && !deferredPrompt && !isAppInstalled()) {
+                  console.log('🔧 PWA criteria met but no install prompt - may arrive later');
+                  
+                  // Show install button anyway for mobile users
+                  const installButton = document.querySelector('.download-icon');
+                  if (installButton && window.innerWidth <= 768) {
+                    installButton.style.display = 'flex';
+                    installButton.style.opacity = '0.8';
+                    console.log('🔧 Showing install button for mobile user');
+                  }
+                }
+              }, 1000);
             })
             .catch(function(err) {
               console.error('❌ ServiceWorker registration failed:', err);
-              console.error('Error details:', err.message);
+              console.error('🔧 Error details:', err.message);
+              console.error('🔧 This will prevent PWA installation');
+              
+              // Still show install button with limited functionality
+              const installButton = document.querySelector('.download-icon');
+              if (installButton) {
+                installButton.style.display = 'flex';
+                installButton.style.opacity = '0.6';
+              }
             });
         });
+        
+        // Handle service worker controller changes
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          console.log('🔧 Service worker controller changed');
+          serviceWorkerReady = true;
+          
+          // Check for install prompt again
+          setTimeout(() => {
+            if (!deferredPrompt && !isAppInstalled()) {
+              console.log('🔧 Checking install criteria after controller change');
+              checkInstallCriteria();
+            }
+          }, 500);
+        });
+        
       } else {
-        console.log('Service Worker not supported in this browser');
+        console.log('🔧 Service Worker not supported in this browser');
+        
+        // Show install button with fallback functionality
+        const installButton = document.querySelector('.download-icon');
+        if (installButton) {
+          installButton.style.display = 'flex';
+          installButton.style.opacity = '0.5';
+        }
       }
 
       // Initialize on page load
       document.addEventListener('DOMContentLoaded', function() {
         console.log('🔧 Add to Home Screen functionality ready');
         
-          const installButton = document.querySelector('.download-icon');
-        const isInstalled = window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
+        const installButton = document.querySelector('.download-icon');
+        const isInstalled = isAppInstalled();
         
         if (isInstalled) {
           // Hide install button if app is already installed
@@ -4250,7 +4888,46 @@
           if (installButton) {
             installButton.style.display = 'flex';
             console.log('🔧 App not installed, showing install button');
+            
+            // Add visual indicator that app can be installed
+            installButton.title = 'Install Slayyin App';
+            installButton.setAttribute('aria-label', 'Install Slayyin App for offline access');
           }
+        }
+
+        // Enhanced PWA readiness check
+        function checkPWAReadiness() {
+          const requirements = {
+            serviceWorker: 'serviceWorker' in navigator,
+            manifest: !!document.querySelector('link[rel="manifest"]'),
+            https: location.protocol === 'https:' || location.hostname === 'localhost'
+          };
+          
+          console.log('🔧 PWA Readiness Check:', requirements);
+          
+          if (Object.values(requirements).every(req => req === true)) {
+            console.log('🔧 PWA requirements met - app should be installable');
+            
+            if (installButton && !isInstalled) {
+              // Make button more prominent when PWA is ready (subtle animation only)
+              const bounceStyle = document.createElement('style');
+              bounceStyle.textContent = `
+                @keyframes installBounce {
+                  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                  40% { transform: translateY(-2px); }
+                  60% { transform: translateY(-1px); }
+                }
+                .install-ready {
+                  animation: installBounce 3s ease-in-out infinite;
+                }
+              `;
+              document.head.appendChild(bounceStyle);
+              installButton.classList.add('install-ready');
+            }
+            
+            return true;
+          }
+          return false;
         }
 
         // Debug service worker status
@@ -4258,80 +4935,84 @@
           navigator.serviceWorker.ready.then(function(registration) {
             console.log('🔧 Service Worker is ready:', registration);
             console.log('🔧 Active worker:', registration.active);
+            serviceWorkerReady = true;
+            
             if (registration.active) {
               console.log('🔧 Worker state:', registration.active.state);
+              checkPWAReadiness();
             }
             
-            // After service worker is ready, check for install prompt again
+            // Enhanced install prompt detection
             setTimeout(() => {
               if (deferredPrompt && installButton) {
-                installButton.style.animation = 'pulse 2s infinite';
-                console.log('🔧 Install prompt available after service worker ready');
+                console.log('🔧 Install prompt available - enhancing button');
+                
+                // Show success message for a moment
+                if (window.innerWidth <= 768) {
+                  showNotification('App ready to install! Tap the download icon.', 3000);
+                }
+              } else if (checkPWAReadiness() && !isInstalled) {
+                console.log('🔧 PWA ready but no prompt yet - may appear later');
+                
+                // For mobile, show helpful hint with small indicator
+                if (window.innerWidth <= 768 && installButton) {
+                  installButton.style.position = 'relative';
+                  installButton.innerHTML = '<i class="fa-solid fa-download"></i><span style="position: absolute; top: -3px; right: -3px; width: 6px; height: 6px; background: #666; border-radius: 50%;"></span>';
+                }
               }
-            }, 1000);
+            }, 1500);
           });
           
           navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            console.log('🔧 All service worker registrations:', registrations);
+            console.log('🔧 All service worker registrations:', registrations.length);
           });
         }
         
-        // Force a check for the install prompt after DOM is ready
+        // Immediate PWA check
+        checkPWAReadiness();
+        
+        // Enhanced mobile PWA detection
         setTimeout(() => {
-          if (!deferredPrompt && !isInstalled) {
-            console.log('🔧 Checking PWA criteria manually...');
+          if (!deferredPrompt && !isInstalled && window.innerWidth <= 768) {
+            console.log('🔧 Mobile device - setting up enhanced install flow');
             
-            // Verify all PWA requirements
-            const hasServiceWorker = 'serviceWorker' in navigator;
-            const manifestElement = document.querySelector('link[rel="manifest"]');
-            const hasManifest = !!manifestElement;
-            const isSecure = location.protocol === 'https:' || location.hostname === 'localhost';
-            
-            console.log('🔧 PWA Requirements Check:');
-            console.log('🔧 - Service Worker supported:', hasServiceWorker);
-            console.log('🔧 - Manifest linked:', hasManifest);
-            console.log('🔧 - Secure context:', isSecure);
-            
-            if (manifestElement) {
-              console.log('🔧 - Manifest URL:', manifestElement.href);
-              
-              // Test if manifest is accessible and valid
-              fetch(manifestElement.href)
-                .then(response => {
-                  console.log('🔧 - Manifest fetch status:', response.ok);
-                  return response.json();
-                })
-                .then(manifest => {
-                  console.log('🔧 - Manifest content:', manifest);
-                  console.log('🔧 - Icons defined:', manifest.icons?.length || 0);
-                  
-                  // Test icon accessibility
-                  if (manifest.icons && manifest.icons.length > 0) {
-                    manifest.icons.forEach((icon, index) => {
-                      const iconUrl = new URL(icon.src, window.location.href).href;
-                      console.log(`🔧 - Testing icon ${index + 1}: ${iconUrl}`);
-                      
-                      // Test if icon is accessible
-                      fetch(iconUrl, { method: 'HEAD' })
-                        .then(response => {
-                          console.log(`🔧 - Icon ${index + 1} (${icon.sizes}) accessible:`, response.ok);
-                        })
-                        .catch(error => {
-                          console.error(`🔧 - Icon ${index + 1} (${icon.sizes}) failed:`, error);
-                        });
-                    });
+            if (installButton && checkPWAReadiness()) {
+              // Show instructional tooltip after a delay
+              setTimeout(() => {
+                const tooltip = document.createElement('div');
+                tooltip.style.cssText = `
+                  position: fixed;
+                  top: 70px;
+                  right: 15px;
+                  background: #333;
+                  color: white;
+                  padding: 8px 12px;
+                  border-radius: 8px;
+                  font-size: 11px;
+                  z-index: 1000;
+                  animation: fadeIn 0.5s ease-in;
+                  pointer-events: none;
+                  max-width: 200px;
+                  text-align: center;
+                  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                `;
+                tooltip.textContent = 'Tap to install app or use browser menu';
+                document.body.appendChild(tooltip);
+                
+                setTimeout(() => {
+                  if (tooltip.parentNode) {
+                    tooltip.style.opacity = '0';
+                    setTimeout(() => tooltip.remove(), 500);
                   }
-                })
-                .catch(error => {
-                  console.error('🔧 - Manifest fetch error:', error);
-                });
-            }
-            
-            if (hasServiceWorker && hasManifest && isSecure) {
-              console.log('🔧 All PWA requirements met, prompt should be available');
+                }, 4000);
+                
+                const fadeInStyle = document.createElement('style');
+                fadeInStyle.textContent = `@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }`;
+                document.head.appendChild(fadeInStyle);
+              }, 3000);
             }
           }
-        }, 2000);
+        }, 3000);
       });
     </script>
 
